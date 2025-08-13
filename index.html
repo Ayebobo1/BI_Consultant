@@ -5,24 +5,32 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ebo Aye Insights — Turning local data into local decisions</title>
   <meta name="description" content="DMV-focused BI dashboards in Power BI & Excel. Sales, customers, inventory, and marketing—made simple.">
-  <meta property="og:image" content="/assets/og-card.png">
+  <meta property="og:image" content="assets/og-card.png">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><rect width=%22128%22 height=%22128%22 fill=%22%2310b981%22/><text x=%2250%25%22 y=%2258%25%22 text-anchor=%22middle%22 dominant-baseline=%22central%22 font-family=%22Arial%22 font-size=%2272%22 fill=%22white%22>BI</text></svg>">
   <link rel="stylesheet" href="styles.css">
-  <!-- Optional GA4: replace G-XXXXXXX -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXX');</script> -->
+  <!-- Optional GA4: replace G-XXXXXXX
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXX');</script>
+  -->
+  <style>
+    /* --- tiny additions so linked cards look/feel clickable --- */
+    .gallery .card.dash { display:block; text-decoration:none; color:inherit; padding:0; overflow:hidden }
+    .gallery .card.dash img { width:100%; display:block; border-radius:12px; border:1px solid #e2e8f0 }
+    .gallery .card.dash .caption { padding:10px 4px; font-weight:600; color:#0f172a }
+    .gallery .card.dash:hover img { transform:scale(1.01); transition:transform .2s ease }
+  </style>
 </head>
 <body>
   <header class="hero">
     <div class="container">
       <span class="badge">DMV-focused BI consultant</span>
-      <h1>Eboosele Ayewoh Data & Business Insights</h1>
-      <p class="subtitle">I build no‑nonsense dashboards in Power BI & Excel that show you exactly what’s working—sales, customers, inventory, and marketing—without new software or IT lift.</p>
+      <h1>Ebo Aye Data & Business Insights</h1>
+      <p class="subtitle">I build no-nonsense dashboards in Power BI & Excel that show you exactly what’s working—sales, customers, inventory, and marketing—without new software or IT lift.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="https://calendly.com/YOUR-CALENDLY/intro-call" target="_blank">Book a 15‑min intro</a>
+        <a class="btn btn-primary" href="https://calendly.com/YOUR-CALENDLY/intro-call" target="_blank" rel="noopener">Book a 15-min intro</a>
         <a class="btn btn-ghost" href="#dashboards">See sample dashboards</a>
       </div>
-      <p class="small" style="margin-top:8px;">📧 Ebosele.Ayewoh@gmail.com &nbsp; • &nbsp; 📞 (216) 570‑3324 &nbsp; • &nbsp; 🔗 <a href="https://www.linkedin.com/in/ebosele-ayewoh-mba-a9320875/" style="color:#a7f3d0;">LinkedIn</a></p>
+      <p class="small" style="margin-top:8px;">📧 <a href="mailto:Ebosele.Ayewoh@gmail.com" style="color:#a7f3d0;">Ebosele.Ayewoh@gmail.com</a> &nbsp; • &nbsp; 📞 (216) 570-3324 &nbsp; • &nbsp; 🔗 <a href="https://www.linkedin.com/in/ebosele-ayewoh-mba-a9320875/" style="color:#a7f3d0;">LinkedIn</a></p>
     </div>
   </header>
 
@@ -32,7 +40,7 @@
         <div class="kicker">Benefits</div>
         <h2>What you get—fast, visual, actionable</h2>
         <div class="grid grid-3">
-          <div class="card"><strong>Revenue clarity</strong><p>See top‑selling items, peak hours, and promo ROI at a glance.</p></div>
+          <div class="card"><strong>Revenue clarity</strong><p>See top-selling items, peak hours, and promo ROI at a glance.</p></div>
           <div class="card"><strong>Customer retention</strong><p>Find repeat buyers, average LTV, and the channels bringing them in.</p></div>
           <div class="card"><strong>Ops & inventory</strong><p>Track stock, avoid stockouts, and align purchasing with demand.</p></div>
         </div>
@@ -42,13 +50,39 @@
     <section id="dashboards" class="section">
       <div class="container">
         <div class="kicker">Templates</div>
-        <h2>Five plug‑and‑play dashboards (fully customizable)</h2>
+        <h2>Five plug-and-play dashboards (fully customizable)</h2>
+
         <div class="grid grid-2 gallery">
-          <div class="card"><img src="assets/Pizza Sales dashboard.png" alt="Sales & Menu Performance"></div>
-          <div class="card"><img src="assets/dash-customers.png" alt="Customer Insights & Retention"></div>
-          <div class="card"><img src="assets/dash-events.png" alt="Event & Promotion Impact"></div>
-          <div class="card"><img src="assets/dash-inventory.png" alt="Inventory & Cost Control"></div>
-          <div class="card"><img src="assets/dash-marketing.png" alt="Marketing & Social"></div>
+          <!-- 1. Sales & Menu Performance -->
+          <a class="card dash" href="https://your-live-link.example/sales" target="_blank" rel="noopener noreferrer" title="Open Sales & Menu Performance dashboard">
+            <!-- rename the file on disk to this name (no spaces, lowercase) -->
+            <img src="assets/pizza-sales-dashboard.png" alt="Sales & Menu Performance">
+            <div class="caption">Sales & Menu Performance →</div>
+          </a>
+
+          <!-- 2. Customer Insights & Retention -->
+          <a class="card dash" href="https://your-live-link.example/customers" target="_blank" rel="noopener noreferrer" title="Open Customer Insights & Retention dashboard">
+            <img src="assets/dash-customers.png" alt="Customer Insights & Retention">
+            <div class="caption">Customer Insights & Retention →</div>
+          </a>
+
+          <!-- 3. Event & Promotion Impact -->
+          <a class="card dash" href="https://your-live-link.example/events" target="_blank" rel="noopener noreferrer" title="Open Event & Promotion Impact dashboard">
+            <img src="assets/dash-events.png" alt="Event & Promotion Impact">
+            <div class="caption">Event & Promotion Impact →</div>
+          </a>
+
+          <!-- 4. Inventory & Cost Control -->
+          <a class="card dash" href="https://your-live-link.example/inventory" target="_blank" rel="noopener noreferrer" title="Open Inventory & Cost Control dashboard">
+            <img src="assets/dash-inventory.png" alt="Inventory & Cost Control">
+            <div class="caption">Inventory & Cost Control →</div>
+          </a>
+
+          <!-- 5. Marketing & Social -->
+          <a class="card dash" href="https://your-live-link.example/marketing" target="_blank" rel="noopener noreferrer" title="Open Marketing & Social dashboard">
+            <img src="assets/dash-marketing.png" alt="Marketing & Social">
+            <div class="caption">Marketing & Social →</div>
+          </a>
         </div>
       </div>
     </section>
@@ -56,9 +90,9 @@
     <section class="section">
       <div class="container">
         <div class="kicker">How it works</div>
-        <h2>A simple, no‑surprises process</h2>
+        <h2>A simple, no-surprises process</h2>
         <div class="grid grid-3">
-          <div class="card"><strong>01 • Quick discovery</strong><p>15‑minute call to confirm goals, data sources, and quick wins.</p></div>
+          <div class="card"><strong>01 • Quick discovery</strong><p>15-minute call to confirm goals, data sources, and quick wins.</p></div>
           <div class="card"><strong>02 • Prototype in 72h</strong><p>See a working draft using your exports (or my realistic sample data).</p></div>
           <div class="card"><strong>03 • Iterate & automate</strong><p>Tighten visuals + set refresh (email or live dashboard).</p></div>
         </div>
@@ -68,10 +102,10 @@
     <section class="section">
       <div class="container">
         <div class="kicker">About</div>
-        <h2>Hi, I’m Jon—your fractional BI partner in the DMV</h2>
+        <h2>Hi, I’m Ebo — your fractional BI partner in the DMV</h2>
         <div class="grid grid-2">
           <div class="card">
-            <p>I help owners and managers trade spreadsheet chaos for simple, decision‑ready dashboards. I’m hands‑on, fast, and focused on business impact—not jargon. If you use Excel, Google Sheets, QuickBooks, Toast, Square, Shopify, or CSVs, we can make dashboards that actually move the needle.</p>
+            <p>I help owners and managers trade spreadsheet chaos for simple, decision-ready dashboards. I’m hands-on, fast, and focused on business impact—not jargon. If you use Excel, Google Sheets, QuickBooks, Toast, Square, Shopify, or CSVs, we can make dashboards that actually move the needle.</p>
             <ul>
               <li>Power BI, Excel, SQL, Python</li>
               <li>Restaurant, retail, nonprofit, and event analytics</li>
@@ -82,10 +116,10 @@
             <strong>What I deliver</strong>
             <ul>
               <li>Five customizable dashboard templates</li>
-              <li>Brand‑matched visuals + your KPIs</li>
+              <li>Brand-matched visuals + your KPIs</li>
               <li>Automation so reports run themselves</li>
             </ul>
-            <p class="small">🔗 <a href="https://www.linkedin.com/in/YOUR-LINKEDIN">Connect on LinkedIn</a></p>
+            <p class="small">🔗 <a href="https://www.linkedin.com/in/ebosele-ayewoh-mba-a9320875/">Connect on LinkedIn</a></p>
           </div>
         </div>
       </div>
@@ -94,7 +128,7 @@
     <section class="section">
       <div class="container">
         <div class="kicker">Let’s talk</div>
-        <h2>Book a free 15‑minute consult</h2>
+        <h2>Book a free 15-minute consult</h2>
         <div class="grid grid-2">
           <div class="card">
             <form name="contact" method="POST" data-netlify="true">
@@ -119,14 +153,14 @@
               </div>
               <div class="submit">
                 <button class="btn btn-primary" type="submit">Send message</button>
-                <a class="btn" href="https://calendly.com/YOUR-CALENDLY/intro-call" target="_blank" style="border:1px solid #e2e8f0;">Book a 15‑min intro</a>
+                <a class="btn" href="https://calendly.com/YOUR-CALENDLY/intro-call" target="_blank" rel="noopener" style="border:1px solid #e2e8f0;">Book a 15-min intro</a>
               </div>
             </form>
           </div>
           <div class="card contact-card">
             <div><strong>Contact</strong></div>
-            <div>📧 Ebosele.Ayewoh@gmail.com</div>
-            <div>📞 (216) 570‑3324</div>
+            <div>📧 <a href="mailto:Ebosele.Ayewoh@gmail.com">Ebosele.Ayewoh@gmail.com</a></div>
+            <div>📞 (216) 570-3324</div>
             <div>🔗 <a href="https://www.linkedin.com/in/ebosele-ayewoh-mba-a9320875/">LinkedIn</a></div>
             <div class="small">Response within 1 business day.</div>
           </div>
@@ -136,7 +170,7 @@
   </main>
 
   <footer>
-    <div class="container">© <span id="y"></span> Ebosele Ayewoh Data & Business Insights. All rights reserved.</div>
+    <div class="container">© <span id="y"></span> Ebo Aye Data & Business Insights. All rights reserved.</div>
   </footer>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
