@@ -109,6 +109,15 @@
       </div>
     </section>
 
+    <!-- REVIEWS -->
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="kicker">Reviews</div>
+        <h2>What my clients say</h2>
+        <div id="reviews-container" class="grid grid-2"></div>
+      </div>
+    </section>
+
     <!-- ABOUT -->
     <section class="section">
       <div class="container">
@@ -140,36 +149,32 @@
     </section>
 
     <!-- CONTACT -->
-    <!-- CONTACT -->
-<section class="section">
-  <div class="container">
-    <div class="kicker">Let’s talk</div>
-    <h2>Book a free 15-minute consult</h2>
-    <div class="grid grid-2">
-      <div class="card">
-        <h3>Contact Me</h3>
-        <p>Have questions or want to get started? Send me an email directly:</p>
-        <a class="btn btn-primary" 
-           href="mailto:Ebosele.Ayewoh@gmail.com?subject=Inquiry%20from%20BI%20Consultant%20Site&body=Name%3A%0ABusiness%3A%0AWhat%20you%20want%20to%20improve%3A%0A">
-           Send message
-        </a>
-        <a class="btn" 
-           href="https://calendly.com/ebosele-ayewoh/30min" 
-           target="_blank" rel="noopener" 
-           style="border:1px solid #e2e8f0;">
-           Book a 30-min intro
-        </a>
+    <section class="section">
+      <div class="container">
+        <div class="kicker">Let’s talk</div>
+        <h2>Book a free 15-minute consult</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Contact Me</h3>
+            <p>Have questions or want to get started? Send me an email directly:</p>
+            <a class="btn btn-primary" 
+              href="mailto:Ebosele.Ayewoh@gmail.com?subject=Inquiry%20from%20BI%20Consultant%20Site&body=Name%3A%0ABusiness%3A%0AWhat%20you%20want%20to%20improve%3A%0A">
+              Send message
+            </a>
+            <a class="btn" href="https://calendly.com/ebosele-ayewoh/30min" target="_blank" rel="noopener" style="border:1px solid #e2e8f0;">
+              Book a 30-min intro
+            </a>
+          </div>
+          <div class="card contact-card">
+            <div><strong>Contact</strong></div>
+            <div>📧 <a href="mailto:Ebosele.Ayewoh@gmail.com">Ebosele.Ayewoh@gmail.com</a></div>
+            <div>📞 (216) 570-3324</div>
+            <div>🔗 <a href="https://www.linkedin.com/in/ebosele-ayewoh-mba-a9320875/">LinkedIn</a></div>
+            <div class="small">Response within 1 business day.</div>
+          </div>
+        </div>
       </div>
-      <div class="card contact-card">
-        <div><strong>Contact</strong></div>
-        <div>📧 <a href="mailto:Ebosele.Ayewoh@gmail.com">Ebosele.Ayewoh@gmail.com</a></div>
-        <div>📞 (216) 570-3324</div>
-        <div>🔗 <a href="https://www.linkedin.com/in/ebosele-ayewoh-mba-a9320875/">LinkedIn</a></div>
-        <div class="small">Response within 1 business day.</div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
   </main>
 
   <footer>
@@ -177,41 +182,28 @@
   </footer>
 
   <script>
-  (async function loadReviews(){
-    const list = document.getElementById('reviews-list');
-    const empty = document.getElementById('reviews-empty');
-    if (!list) return;
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-    try {
-      const res = await fetch('reviews.json', { cache: 'no-cache' });
-      if (!res.ok) throw new Error('reviews.json not found');
-      const reviews = await res.json();
-
-      if (!Array.isArray(reviews) || reviews.length === 0) {
-        if (empty) empty.style.display = 'block';
-        return;
-      }
-
-      const star = n => '★'.repeat(n) + '☆'.repeat(5-n);
-
-      reviews.forEach(r => {
-        const card = document.createElement('div');
-        card.className = 'card review-card';
-        card.innerHTML = `
-          <div class="review-header">
-            <div class="review-stars" aria-label="${r.rating} out of 5">${star(Number(r.rating)||5)}</div>
-            <div class="review-meta small">${(r.name||'Anonymous')}${r.company?(' · '+r.company):''}${r.date?(' · '+r.date):''}</div>
-          </div>
-          <p>${r.text || ''}</p>
-        `;
-        list.appendChild(card);
+    // Load reviews dynamically
+    fetch('reviews.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('reviews-container');
+        data.forEach(r => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <strong>${r.name}</strong> <span style="color:gold;">${'★'.repeat(r.rating)}</span>
+            <p><em>${r.company}</em> • ${r.date}</p>
+            <p>${r.text}</p>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(err => {
+        console.error('Error loading reviews:', err);
+        document.getElementById('reviews-container').innerHTML = '<p>No reviews available.</p>';
       });
-
-    } catch (e) {
-      if (empty) empty.style.display = 'block';
-    }
-  })();
-  document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
