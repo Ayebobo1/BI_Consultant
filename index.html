@@ -192,8 +192,8 @@
 
   // Columns we expect:
   // A: Timestamp, B: Name, C: Company, D: Rating, E: Review, F: Approved
-  // Show only rows where Approved == 'yes'
-  const QUERY = encodeURIComponent("select A,B,C,D,E where F='yes' order by A desc");
+  // Show only rows where Approved == 'Yes'
+  const QUERY = encodeURIComponent("select A,B,C,D,E where F='Yes' order by A desc");
 
   // Google Visualization JSON endpoint (works cross-origin)
   const GVIZ_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${encodeURIComponent(SHEET_NAME)}&tq=${QUERY}`;
