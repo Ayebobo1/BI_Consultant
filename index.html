@@ -177,7 +177,41 @@
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+  (async function loadReviews(){
+    const list = document.getElementById('reviews-list');
+    const empty = document.getElementById('reviews-empty');
+    if (!list) return;
+
+    try {
+      const res = await fetch('reviews.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('reviews.json not found');
+      const reviews = await res.json();
+
+      if (!Array.isArray(reviews) || reviews.length === 0) {
+        if (empty) empty.style.display = 'block';
+        return;
+      }
+
+      const star = n => '★'.repeat(n) + '☆'.repeat(5-n);
+
+      reviews.forEach(r => {
+        const card = document.createElement('div');
+        card.className = 'card review-card';
+        card.innerHTML = `
+          <div class="review-header">
+            <div class="review-stars" aria-label="${r.rating} out of 5">${star(Number(r.rating)||5)}</div>
+            <div class="review-meta small">${(r.name||'Anonymous')}${r.company?(' · '+r.company):''}${r.date?(' · '+r.date):''}</div>
+          </div>
+          <p>${r.text || ''}</p>
+        `;
+        list.appendChild(card);
+      });
+
+    } catch (e) {
+      if (empty) empty.style.display = 'block';
+    }
+  })();
+  document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
