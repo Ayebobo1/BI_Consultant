@@ -246,7 +246,7 @@
 
         const metaBits = [name];
         if (company) metaBits.push(company);
-        if (timestamp) metaBits.push(String(timestamp).split('T')[0]); // YYYY-MM-DD
+        if (timestamp) metaBits.push(String(timestamp).split('T')[0]); // MM-DD-YYYY
 
         const card = document.createElement('div');
         card.className = 'card review-card';
