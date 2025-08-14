@@ -182,28 +182,92 @@
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+  // Keep the footer year updated
+  document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Load reviews dynamically
-    fetch('reviews.json')
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById('reviews-container');
-        data.forEach(r => {
-          const card = document.createElement('div');
-          card.className = 'card';
-          card.innerHTML = `
-            <strong>${r.name}</strong> <span style="color:gold;">${'★'.repeat(r.rating)}</span>
-            <p><em>${r.company}</em> • ${r.date}</p>
-            <p>${r.text}</p>
-          `;
-          container.appendChild(card);
-        });
-      })
-      .catch(err => {
-        console.error('Error loading reviews:', err);
-        document.getElementById('reviews-container').innerHTML = '<p>No reviews available.</p>';
+  // === Google Sheets-powered Reviews ===
+  // 1) Replace these with your real values:
+  const SHEET_ID   = '1gZUWWyL7LkZgvzmHUi706LQYSRzlPJa-EC5KXBQuO7k';        // e.g., 1AbCDeFGhIJKLmnOPqrSTuvWxYz1234567890
+  const SHEET_NAME = 'Reviews';               // or 'Reviews' if you renamed the tab
+
+  // Columns we expect:
+  // A: Timestamp, B: Name, C: Company, D: Rating, E: Review, F: Approved
+  // Show only rows where Approved == 'yes'
+  const QUERY = encodeURIComponent("select A,B,C,D,E where F='yes' order by A desc");
+
+  // Google Visualization JSON endpoint (works cross-origin)
+  const GVIZ_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${encodeURIComponent(SHEET_NAME)}&tq=${QUERY}`;
+
+  // Utility: parse Google Visualization JSON
+  function parseGviz(text) {
+    // GViz returns something like: /*O_o*/\ngoogle.visualization.Query.setResponse({...});
+    const prefix = 'google.visualization.Query.setResponse(';
+    const start = text.indexOf(prefix);
+    const end = text.lastIndexOf(');');
+    if (start === -1 || end === -1) throw new Error('Unexpected GViz response');
+    const json = text.substring(start + prefix.length, end);
+    return JSON.parse(json);
+  }
+
+  async function loadSheetReviews() {
+    const container = document.getElementById('reviews-container');
+    if (!container) return;
+    try {
+      const res = await fetch(GVIZ_URL, { cache: 'no-store' });
+      const raw = await res.text();
+      const data = parseGviz(raw);
+
+      if (!data.table || !data.table.rows) throw new Error('No rows');
+
+      const rows = data.table.rows;
+
+      if (!rows.length) {
+        container.innerHTML = '<div class="card"><p>No public reviews yet. Be the first to leave one!</p></div>';
+        return;
+      }
+
+      // Render each row
+      rows.forEach(r => {
+        // Safely read cells: r.c[i]?.v
+        const timestamp = r.c[0] && r.c[0].v ? r.c[0].v : '';
+        const name      = r.c[1] && r.c[1].v ? r.c[1].v : 'Anonymous';
+        const company   = r.c[2] && r.c[2].v ? r.c[2].v : '';
+        const rating    = Math.max(1, Math.min(5, Number(r.c[3] && r.c[3].v ? r.c[3].v : 5)));
+        const review    = r.c[4] && r.c[4].v ? r.c[4].v : '';
+
+        const metaBits = [name];
+        if (company) metaBits.push(company);
+        if (timestamp) metaBits.push(String(timestamp).split('T')[0]); // YYYY-MM-DD
+
+        const card = document.createElement('div');
+        card.className = 'card review-card';
+        card.innerHTML = `
+          <div class="review-header">
+            <div class="review-stars" aria-label="${rating} out of 5">${'★'.repeat(rating)}${'☆'.repeat(5-rating)}</div>
+            <div class="review-meta small">${metaBits.join(' · ')}</div>
+          </div>
+          <p>${String(review).replace(/</g,'&lt;')}</p>
+        `;
+        container.appendChild(card);
       });
-  </script>
+    } catch (err) {
+      console.warn('Falling back to inline sample review:', err);
+      // Fallback sample so the section doesn't look empty if the sheet isn't ready yet
+      const container = document.getElementById('reviews-container');
+      container.innerHTML = `
+        <div class="card review-card">
+          <div class="review-header">
+            <div class="review-stars" aria-label="5 out of 5">★★★★★</div>
+            <div class="review-meta small">Sample Client · Washington, DC · 2025-08-14</div>
+          </div>
+          <p>Ebo delivered clear dashboards in days—helped us focus on the channels that actually drive repeat customers.</p>
+        </div>
+      `;
+    }
+  }
+
+  loadSheetReviews();
+</script>
+
 </body>
 </html>
