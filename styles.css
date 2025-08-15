@@ -41,3 +41,24 @@ input,textarea{width:100%;border:1px solid #e2e8f0;border-radius:12px;padding:10
 .gallery .card.dash img { width:100%; display:block; border-radius:12px; border:1px solid #e2e8f0; transition:transform .2s ease }
 .gallery .card.dash .caption { padding:10px 4px; font-weight:600; color:#0f172a }
 .gallery .card.dash:hover img { transform:scale(1.01) }
+
+/* =========================
+   About Me + Headshot
+   ========================= */
+.about-grid{ align-items:center; } /* keep cards aligned nicely */
+.about-photo{ display:flex; align-items:center; justify-content:center; }
+.about-photo img{
+  width:100%;
+  max-width:360px;           /* keeps the headshot from getting too large */
+  aspect-ratio:1/1;          /* perfect square crop */
+  object-fit:cover;          /* fills the circle nicely */
+  border-radius:9999px;      /* circle */
+  border:1px solid #e2e8f0;
+  box-shadow:0 6px 18px rgba(2,6,23,.06);
+}
+.about-bio ul{ margin-top:8px; }
+.about-cta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
+
+@media (max-width:900px){
+  .about-photo img{ max-width:260px; margin:0 auto; }
+}
