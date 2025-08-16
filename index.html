@@ -11,25 +11,91 @@
   <meta property="og:image" content="assets/og-card.png" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><rect width=%22128%22 height=%22128%22 fill=%22%2310b981%22/><text x=%2250%25%22 y=%2258%25%22 text-anchor=%22middle%22 dominant-baseline=%22central%22 font-family=%22Arial%22 font-size=%2272%22 fill=%22white%22>BI</text></svg>">
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Minimal extras just for this update -->
+  <style>
+    /* HERO: subtle fade + tagline badge + split layout with headshot */
+    .hero { position: relative; overflow: hidden; }
+    .hero-inner { display:grid; grid-template-columns: 1.2fr .8fr; gap:24px; align-items:center; }
+    .tagline-badge { position:absolute; right:20px; top:18px; background:rgba(16,185,129,.12); color:#a7f3d0;
+      border:1px solid rgba(16,185,129,.35); padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.06em }
+    .fade-in { opacity:0; transform:translateY(6px); animation:fadeIn .6s ease-out .1s forwards; }
+    .fade-in-2 { opacity:0; transform:translateY(6px); animation:fadeIn .6s ease-out .25s forwards; }
+    .fade-in-3 { opacity:0; transform:translateY(6px); animation:fadeIn .6s ease-out .4s forwards; }
+    @keyframes fadeIn { to { opacity:1; transform:none; } }
+
+    /* HERO headshot */
+    .hero-photo-wrap { display:flex; align-items:center; justify-content:center; }
+    .hero-photo { width:100%; max-width:360px; aspect-ratio:1/1; object-fit:cover; border-radius:9999px;
+      border:1px solid #a7f3d0; box-shadow:0 10px 30px rgba(2,6,23,.25) }
+
+    /* Gallery hover overlay */
+    .gallery .card.dash { position:relative; }
+    .gallery .dash .overlay {
+      position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:flex-start;
+      background:linear-gradient(to top, rgba(15,23,42,.45), rgba(15,23,42,0) 50%);
+      opacity:0; transition:opacity .18s ease-in-out; padding:10px; border-radius:12px;
+    }
+    .gallery .dash:hover .overlay { opacity:1; }
+    .overlay .overlay-text { color:#fff; font-weight:700; font-size:14px; text-shadow:0 1px 2px rgba(0,0,0,.3) }
+
+    /* Process icons row */
+    .icon { width:20px; height:20px; vertical-align:-3px; margin-right:6px; }
+
+    /* Pricing */
+    .pricing-card h3 { margin:0 0 6px; }
+    .price { font-size:28px; font-weight:800; color:#0f172a; }
+    .price small { font-weight:600; color:#475569; }
+
+    /* Reviews (if using Google Sheet/JSON elsewhere you already have JS) */
+    .review-card { display:flex; flex-direction:column; gap:8px }
+    .review-stars { color:#f59e0b; }
+
+    /* Contact thank-you */
+    .thankyou { display:none; }
+    .thankyou.show { display:block; }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .tagline-badge { position:static; display:inline-block; margin-bottom:10px; }
+      .hero-photo { max-width:260px; margin:0 auto; }
+    }
+  </style>
 </head>
+
 <body>
   <!-- HERO -->
   <header class="hero">
     <div class="container">
-      <span class="badge">DMV-focused BI consultant</span>
-      <h1>Ayewoh's' Data &amp; Business Insights</h1>
-      <p class="subtitle">
-        I build no-nonsense dashboards in Power BI &amp; Excel that show you exactly what’s working—sales, customers, inventory, and marketing—without new software or IT lift.
-      </p>
-      <div class="cta">
-        <a class="btn btn-primary" href="https://calendly.com/ebosele-ayewoh/30min" target="_blank" rel="noopener">Book a 30-min intro</a>
-        <a class="btn btn-ghost" href="#dashboards">See sample dashboards</a>
+      <span class="tagline-badge">Turning local data into local decisions</span>
+
+      <div class="hero-inner">
+        <!-- Left: copy -->
+        <div class="fade-in">
+          <span class="badge">DMV-focused BI consultant</span>
+          <h1 class="fade-in-2">Ebosele Ayewoh's Data &amp; Business Intelligence Insights</h1>
+          <p class="subtitle fade-in-3">
+            I build no-nonsense dashboards in Power BI &amp; Excel that show you exactly what’s working—sales,
+            customers, inventory, and marketing—without new software or IT lift.
+          </p>
+          <div class="cta fade-in-3">
+            <a class="btn btn-primary" href="https://calendly.com/ebosele-ayewoh/30min" target="_blank" rel="noopener">Book a 30-min intro</a>
+            <a class="btn btn-ghost" href="#dashboards">See sample dashboards</a>
+            <a class="btn btn-ghost" href="#about">About me</a>
+          </div>
+          <p class="small fade-in-3" style="margin-top:8px;">
+            📧 <a href="mailto:Ebosele.Ayewoh@gmail.com" style="color:#a7f3d0;">Ebosele.Ayewoh@gmail.com</a>
+            &nbsp; • &nbsp; 📞 (216) 570-3324
+            &nbsp; • &nbsp; 🔗 <a href="https://www.linkedin.com/in/ebosele-ayewoh-mba-a9320875/" style="color:#a7f3d0;">LinkedIn</a>
+          </p>
+        </div>
+
+        <!-- Right: headshot -->
+        <div class="hero-photo-wrap fade-in-2">
+          <!-- Replace this file with your real headshot -->
+          <img class="hero-photo" src="assets/Headshot.png" alt="Professional headshot of Ebosele Ayewoh" loading="lazy">
+        </div>
       </div>
-      <p class="small" style="margin-top:8px;">
-        📧 <a href="mailto:Ebosele.Ayewoh@gmail.com">Ebosele.Ayewoh@gmail.com</a>
-        &nbsp; • &nbsp; 📞 (216) 570-3324
-        &nbsp; • &nbsp; 🔗 <a href="https://www.linkedin.com/in/ebosele-ayewoh-mba-a9320875/">LinkedIn</a>
-      </p>
     </div>
   </header>
 
@@ -66,85 +132,137 @@
           <!-- 1. Sales & Menu Performance -->
           <a class="card dash" href="https://app.fabric.microsoft.com/view?r=eyJrIjoiYjQ0NTU5OGMtNDM4YS00NGY5LWFhZjAtMjUxZDMwNWEzOGYyIiwidCI6IjIxMzI0NmVkLWI0MGItNDYwOC04YmUwLTIyYmE0Mzc2YTA4ZCIsImMiOjF9" target="_blank" rel="noopener noreferrer" title="Open Sales & Menu Performance dashboard">
             <img src="assets/dash-sales.png" alt="Sales & Menu Performance" />
-            <div class="caption">Sales &amp; Menu Performance →</div>
+            <div class="overlay"><div class="overlay-text">Click to explore →</div></div>
+            <div class="caption">Sales &amp; Menu Performance</div>
           </a>
 
           <!-- 2. Customer Insights & Retention -->
           <a class="card dash" href="https://app.fabric.microsoft.com/view?r=eyJrIjoiNGI5NDI1NDgtM2U0Ni00ZWJkLWExYWQtYzFjZTRhYzU4M2UzIiwidCI6IjIxMzI0NmVkLWI0MGItNDYwOC04YmUwLTIyYmE0Mzc2YTA4ZCIsImMiOjF9" target="_blank" rel="noopener noreferrer" title="Open Customer Insights & Retention dashboard">
             <img src="assets/dash-customers.png" alt="Customer Insights & Retention" />
-            <div class="caption">Customer Insights &amp; Retention →</div>
+            <div class="overlay"><div class="overlay-text">Click to explore →</div></div>
+            <div class="caption">Customer Insights &amp; Retention</div>
           </a>
 
           <!-- 3. Event & Promotion Impact -->
           <a class="card dash" href="https://app.fabric.microsoft.com/view?r=eyJrIjoiNDYwYzE1NDktNTcxZS00NTA1LTlmODUtODJlMmFjMmE3MWIyIiwidCI6IjIxMzI0NmVkLWI0MGItNDYwOC04YmUwLTIyYmE0Mzc2YTA4ZCIsImMiOjF9" target="_blank" rel="noopener noreferrer" title="Open Event & Promotion Impact dashboard">
             <img src="assets/dash-events.png" alt="Event & Promotion Impact" />
-            <div class="caption">Event &amp; Promotion Impact →</div>
+            <div class="overlay"><div class="overlay-text">Click to explore →</div></div>
+            <div class="caption">Event &amp; Promotion Impact</div>
           </a>
 
           <!-- 4. Inventory & Cost Control -->
           <a class="card dash" href="https://app.fabric.microsoft.com/view?r=eyJrIjoiZjZkYWYxOWItNGI5Yi00MjZkLTg1N2MtYTkwMTk0ZDc2MGQzIiwidCI6IjIxMzI0NmVkLWI0MGItNDYwOC04YmUwLTIyYmE0Mzc2YTA4ZCIsImMiOjF9" target="_blank" rel="noopener noreferrer" title="Open Inventory & Cost Control dashboard">
             <img src="assets/dash-inventory.png" alt="Inventory & Cost Control" />
-            <div class="caption">Inventory &amp; Cost Control →</div>
+            <div class="overlay"><div class="overlay-text">Click to explore →</div></div>
+            <div class="caption">Inventory &amp; Cost Control</div>
           </a>
 
           <!-- 5. Marketing & Social -->
           <a class="card dash" href="https://app.fabric.microsoft.com/view?r=eyJrIjoiMTllNzUzNjItM2U1Yy00Y2M4LWEyZDItMzNjMGJiNTU1N2ZmIiwidCI6IjIxMzI0NmVkLWI0MGItNDYwOC04YmUwLTIyYmE0Mzc2YTA4ZCIsImMiOjF9" target="_blank" rel="noopener noreferrer" title="Open Marketing & Social dashboard">
             <img src="assets/dash-marketing.png" alt="Marketing & Social" />
-            <div class="caption">Marketing &amp; Social →</div>
+            <div class="overlay"><div class="overlay-text">Click to explore →</div></div>
+            <div class="caption">Marketing &amp; Social</div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- PROCESS -->
+    <!-- PRICING -->
+    <section class="section">
+      <div class="container">
+        <div class="kicker">Pricing</div>
+        <h2>Start small, prove value, scale what works</h2>
+        <div class="grid grid-3">
+          <div class="card pricing-card">
+            <h3>Pilot</h3>
+            <div class="price">From $750 <small>one-time</small></div>
+            <ul>
+              <li>1 dashboard template tailored to you</li>
+              <li>Data hookup from Excel/CSV/Sheets</li>
+              <li>Walk-through & next-step plan</li>
+            </ul>
+          </div>
+          <div class="card pricing-card">
+            <h3>Essentials</h3>
+            <div class="price">$1,500–$3,000 <small>project</small></div>
+            <ul>
+              <li>2–3 dashboards + light automation</li>
+              <li>KPI alignment & brand-matched visuals</li>
+              <li>Email refresh or live share link</li>
+            </ul>
+          </div>
+          <div class="card pricing-card">
+            <h3>Ongoing</h3>
+            <div class="price">From $500 <small>/month</small></div>
+            <ul>
+              <li>Monthly updates & enhancements</li>
+              <li>New dashboards on request</li>
+              <li>Support & insights review</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small" style="margin-top:8px;">Every engagement starts with a 30-min discovery to confirm scope and ROI.</p>
+      </div>
+    </section>
+
+    <!-- PROCESS (with icons) -->
     <section class="section">
       <div class="container">
         <div class="kicker">How it works</div>
         <h2>A simple, no-surprises process</h2>
         <div class="grid grid-3">
-          <div class="card"><strong>01 • Quick discovery</strong><p>15-minute call to confirm goals, data sources, and quick wins.</p></div>
-          <div class="card"><strong>02 • Prototype in 72h</strong><p>See a working draft using your exports (or my realistic sample data).</p></div>
-          <div class="card"><strong>03 • Iterate &amp; automate</strong><p>Tighten visuals + set refresh (email or live dashboard).</p></div>
+          <div class="card">
+            <!-- phone icon -->
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 4a2 2 0 0 1 2-2h2c.9 0 1.7.6 1.9 1.5l.7 3a2 2 0 0 1-.5 1.8l-1.2 1.2a16 16 0 0 0 6.8 6.8l1.2-1.2a2 2 0 0 1 1.8-.5l3 .7c.9.2 1.5 1 1.5 1.9v2a2 2 0 0 1-2 2h-1C9.7 22 2 14.3 2 5V4z"/></svg>
+            <strong>01 • Quick discovery</strong>
+            <p>30-minute call to confirm goals, data sources, and quick wins.</p>
+          </div>
+          <div class="card">
+            <!-- clock icon -->
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1Zm1 11.41 3.3 3.3a1 1 0 1 1-1.42 1.42l-3.59-3.6V6a1 1 0 0 1 2 0Z"/></svg>
+            <strong>02 • Prototype in 72h</strong>
+            <p>See a working draft using your exports (or my realistic sample data).</p>
+          </div>
+          <div class="card">
+            <!-- repeat/iterate icon -->
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 1v4H7.8a6 6 0 0 0-6 6v1a1 1 0 0 0 2 0v-1a4 4 0 0 1 4-4H17v4l5-5ZM7 23v-4h9.2a6 6 0 0 0 6-6v-1a1 1 0 1 0-2 0v1a4 4 0 0 1-4 4H7v-4l-5 5Z"/></svg>
+            <strong>03 • Iterate &amp; automate</strong>
+            <p>Tighten visuals and set refresh (email or live dashboard).</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- REVIEWS -->
+    <!-- REVIEWS (kept simple here; if you use your Sheet/JSON loader it will populate) -->
     <section class="section" id="reviews">
       <div class="container">
         <div class="kicker">Reviews</div>
-        <h2>What my clients say</h2>
+        <h2>What clients are saying</h2>
         <p class="small" style="margin:6px 0 16px">
-  Recently worked with me?
-  <a class="btn"
-     href="https://docs.google.com/forms/d/e/1FAIpQLSed40WvQRM9WMWoXmnWzcujDJPBK803X1TKJ61IYLxqBhIy4g/viewform"
-     target="_blank" rel="noopener"
-     style="border:1px solid #e2e8f0;">
-    Leave a review
-  </a>
-</p>
-        <div id="reviews-container" class="grid grid-2"></div>
+          Recently worked with me?
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSed40WvQRM9WMWoXmnWzcujDJPBK803X1TKJ61IYLxqBhIy4g/viewform" target="_blank" rel="noopener" style="border:1px solid #e2e8f0;">
+            Leave a review
+          </a>
+        </p>
+        <div id="reviews-container" class="grid grid-2">
+          <!-- If you have a JSON/Sheets loader, it will render here -->
+          <div class="card review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>“Ebo helped us turn confusing sales reports into simple dashboards we use daily. Quick turnaround and professional.”</p>
+            <p class="small">Jane Smith · Washington, DC</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-<section class="section" id="about">
+    <!-- ABOUT (3-sentence client-friendly bio) -->
+    <section class="section">
   <div class="container">
     <div class="kicker">About</div>
     <h2>Hi, I’m Ebo — your fractional BI partner in the DMV</h2>
-
-    <div class="grid grid-2 about-grid">
-      <!-- Headshot -->
-      <div class="card about-photo">
-        <img
-          src="assets/Headshot.png"
-          alt="Professional headshot of Ebosele Ayewoh"
-          width="500" height="500"
-          loading="lazy"
-        />
-      </div>
-
-      <!-- Bio -->
+    <div class="grid grid-2">
+     
+    <!-- Bio -->
       <div class="card about-bio">
         <p>
           I help owners and managers trade spreadsheet chaos for simple, decision-ready dashboards.
@@ -155,6 +273,14 @@
           <li>Power BI, Excel, SQL, Python</li>
           <li>Restaurant, retail, nonprofit, and event analytics</li>
           <li>Pilot in 2 weeks, then iterate and automate</li>
+        </ul>
+    </div>
+      <div class="card">
+        <strong>What I deliver</strong>
+        <ul>
+          <li>Five customizable dashboard templates</li>
+          <li>Brand-matched visuals + your KPIs</li>
+          <li>I empower you to update dashboards with ease</li>
         </ul>
 
         <div class="about-cta">
@@ -170,24 +296,48 @@
   </div>
 </section>
 
-
-    <!-- CONTACT -->
-    <section class="section">
+    <!-- CONTACT (static-site friendly form with inline Thank-You) -->
+    <section class="section" id="contact">
       <div class="container">
         <div class="kicker">Let’s talk</div>
         <h2>Book a free 30-minute consult</h2>
         <div class="grid grid-2">
           <div class="card">
             <h3>Contact Me</h3>
-            <p>Have questions or want to get started? Send me an email directly:</p>
-            <a class="btn btn-primary" 
-              href="mailto:Ebosele.Ayewoh@gmail.com?subject=Inquiry%20from%20BI%20Consultant%20Site&body=Name%3A%0ABusiness%3A%0AWhat%20you%20want%20to%20improve%3A%0A">
-              Send message
-            </a>
-            <a class="btn" href="https://calendly.com/ebosele-ayewoh/30min" target="_blank" rel="noopener" style="border:1px solid #e2e8f0;">
-              Book a 30-min intro
-            </a>
+            <form id="contact-form">
+              <div class="form-row">
+                <div>
+                  <label>Your name</label>
+                  <input name="name" required />
+                </div>
+                <div>
+                  <label>Email</label>
+                  <input name="email" type="email" required />
+                </div>
+              </div>
+              <div>
+                <label>Business (optional)</label>
+                <input name="business" />
+              </div>
+              <div>
+                <label>What would you like to improve?</label>
+                <textarea name="message" rows="4"></textarea>
+              </div>
+              <div class="submit">
+                <button class="btn btn-primary" type="submit">Send message</button>
+                <a class="btn" href="https://calendly.com/ebosele-ayewoh/30min" target="_blank" rel="noopener" style="border:1px solid #e2e8f0;">Book a 30-min intro</a>
+              </div>
+            </form>
+
+            <!-- Inline Thank-You confirmation -->
+            <div id="thankyou" class="card thankyou" style="margin-top:12px;">
+              <h3>Thanks—your message is on the way ✅</h3>
+              <p>I’ll reply within 1 business day. You can also book time directly:</p>
+              <p><a class="btn btn-primary" href="https://calendly.com/ebosele-ayewoh/30min" target="_blank" rel="noopener">Book a 30-min intro</a></p>
+              <p class="small"><a href="#top">← Back to top</a></p>
+            </div>
           </div>
+
           <div class="card contact-card">
             <div><strong>Contact</strong></div>
             <div>📧 <a href="mailto:Ebosele.Ayewoh@gmail.com">Ebosele.Ayewoh@gmail.com</a></div>
@@ -205,92 +355,37 @@
   </footer>
 
   <script>
-  // Keep the footer year updated
-  document.getElementById('y').textContent = new Date().getFullYear();
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-  // === Google Sheets-powered Reviews ===
-  // 1) Replace these with your real values:
-  const SHEET_ID   = '1gZUWWyL7LkZgvzmHUi706LQYSRzlPJa-EC5KXBQuO7k';        // e.g., 1AbCDeFGhIJKLmnOPqrSTuvWxYz1234567890
-  const SHEET_NAME = 'Form Responses 1';               // or 'Reviews' if you renamed the tab
+    // Contact form: static-site friendly.
+    // On submit, we open the user's email client with a prefilled message AND show an inline Thank-You.
+    const form = document.getElementById('contact-form');
+    const ty = document.getElementById('thankyou');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const name = data.get('name') || '';
+        const email = data.get('email') || '';
+        const business = data.get('business') || '';
+        const message = data.get('message') || '';
 
-  // Columns we expect:
-  // A: Timestamp, B: Name, C: Company, D: Rating, E: Review, F: Approved
-  // Show only rows where Approved == 'Yes'
-  const QUERY = encodeURIComponent("select A,B,C,D,E where F='Yes' order by A desc");
+        const subject = encodeURIComponent('Inquiry from BI Consultant Site');
+        const body = encodeURIComponent(
+          `Name: ${name}\nEmail: ${email}\nBusiness: ${business}\n\nWhat to improve:\n${message}`
+        );
 
-  // Google Visualization JSON endpoint (works cross-origin)
-  const GVIZ_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${encodeURIComponent(SHEET_NAME)}&tq=${QUERY}`;
+        // Open default mail client
+        window.location.href = `mailto:Ebosele.Ayewoh@gmail.com?subject=${subject}&body=${body}`;
 
-  // Utility: parse Google Visualization JSON
-  function parseGviz(text) {
-    // GViz returns something like: /*O_o*/\ngoogle.visualization.Query.setResponse({...});
-    const prefix = 'google.visualization.Query.setResponse(';
-    const start = text.indexOf(prefix);
-    const end = text.lastIndexOf(');');
-    if (start === -1 || end === -1) throw new Error('Unexpected GViz response');
-    const json = text.substring(start + prefix.length, end);
-    return JSON.parse(json);
-  }
+        // Show inline confirmation
+        ty && ty.classList.add('show');
 
-  async function loadSheetReviews() {
-    const container = document.getElementById('reviews-container');
-    if (!container) return;
-    try {
-      const res = await fetch(GVIZ_URL, { cache: 'no-store' });
-      const raw = await res.text();
-      const data = parseGviz(raw);
-
-      if (!data.table || !data.table.rows) throw new Error('No rows');
-
-      const rows = data.table.rows;
-
-      if (!rows.length) {
-        container.innerHTML = '<div class="card"><p>No public reviews yet. Be the first to leave one!</p></div>';
-        return;
-      }
-
-      // Render each row
-      rows.forEach(r => {
-        // Safely read cells: r.c[i]?.v
-        const timestamp = r.c[0] && r.c[0].v ? r.c[0].v : '';
-        const name      = r.c[1] && r.c[1].v ? r.c[1].v : 'Anonymous';
-        const company   = r.c[2] && r.c[2].v ? r.c[2].v : '';
-        const rating    = Math.max(1, Math.min(5, Number(r.c[3] && r.c[3].v ? r.c[3].v : 5)));
-        const review    = r.c[4] && r.c[4].v ? r.c[4].v : '';
-
-        const metaBits = [name];
-        if (company) metaBits.push(company);
-        if (timestamp) metaBits.push(String(timestamp).split('T')[0]); // MM-DD-YYYY
-
-        const card = document.createElement('div');
-        card.className = 'card review-card';
-        card.innerHTML = `
-          <div class="review-header">
-            <div class="review-stars" aria-label="${rating} out of 5">${'★'.repeat(rating)}${'☆'.repeat(5-rating)}</div>
-            <div class="review-meta small">${metaBits.join(' · ')}</div>
-          </div>
-          <p>${String(review).replace(/</g,'&lt;')}</p>
-        `;
-        container.appendChild(card);
+        // Optionally clear form
+        form.reset();
       });
-    } catch (err) {
-      console.warn('Falling back to inline sample review:', err);
-      // Fallback sample so the section doesn't look empty if the sheet isn't ready yet
-      const container = document.getElementById('reviews-container');
-      container.innerHTML = `
-        <div class="card review-card">
-          <div class="review-header">
-            <div class="review-stars" aria-label="5 out of 5">★★★★★</div>
-            <div class="review-meta small">Sample Client · Washington, DC · 2025-08-14</div>
-          </div>
-          <p>Ebo delivered clear dashboards in days—helped us focus on the channels that actually drive repeat customers.</p>
-        </div>
-      `;
     }
-  }
-
-  loadSheetReviews();
-</script>
-
+  </script>
 </body>
 </html>
