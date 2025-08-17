@@ -6,6 +6,7 @@
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--text);background:#f8fafc;line-height:1.6}
+html {scroll-behavior: smooth;}
 .container{max-width:1140px;margin:0 auto;padding:0 20px}
 .hero{background:linear-gradient(135deg,#0f172a,#0b3b2d);color:#fff;padding:80px 0;text-align:left}
 .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,0.15);color:#a7f3d0;border:1px solid rgba(16,185,129,0.35);padding:6px 10px;border-radius:999px;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
