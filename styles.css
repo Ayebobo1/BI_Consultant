@@ -1,4 +1,4 @@
-:root{
+﻿:root{
   --bg:#0f172a; /* slate-900 */
   --brand:#10b981; /* emerald-500 */
   --text:#0f172a;
@@ -253,4 +253,190 @@ input:focus, textarea:focus{outline:none;border-color:#94d9c0; box-shadow:0 0 0 
 .consultant svg {
   width: 96px; height: 96px;
   filter: drop-shadow(0 10px 22px rgba(0,0,0,.25));
+}
+
+/* Darker text just for slides 2 and 5 */
+.explainer-slide.s2 .explainer-copy p,
+.explainer-slide.s5 .explainer-copy p {
+  color: #1e293b; /* slate-800, darker for readability */
+  font-weight: 500;
+}
+
+.explainer-slide.s2 .explainer-copy h3,
+.explainer-slide.s5 .explainer-copy h3 {
+  color: #0f172a; /* slate-900 heading, almost black */
+}
+
+/* ---------- Readability overrides for slides 2 & 5 ---------- */
+.explainer-slide.s2 .explainer-copy h3,
+.explainer-slide.s5 .explainer-copy h3 {
+  color: #0f172a;   /* slate-900 */
+}
+.explainer-slide.s2 .explainer-copy p,
+.explainer-slide.s5 .explainer-copy p {
+  color: #1e293b;   /* slate-800 */
+  font-weight: 600;
+}
+
+/* ---------- Sharper spreadsheet / dashboard visuals ---------- */
+.sheet {
+  background: #0b1220;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  overflow: hidden;
+}
+
+.sheet table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: #0f172a;
+  color: #e5e7eb;
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.sheet thead th {
+  background: #0b1220;
+  color: #cbd5e1;
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.sheet tbody td {
+  padding: 7px 10px;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.sheet tbody tr:nth-child(odd) td {
+  background: rgba(255,255,255,0.02);
+}
+
+.flag { 
+  display: inline-block; 
+  padding: 2px 6px; 
+  border-radius: 999px; 
+  font-size: 11px; 
+  font-weight: 700; 
+}
+.flag.bad  { background:#fecaca; color:#7f1d1d; }
+.flag.warn { background:#fde68a; color:#92400e; }
+.flag.good { background:#bbf7d0; color:#14532d; }
+
+.good { color:#34d399; }
+.bad  { color:#f87171; }
+.warn { color:#fbbf24; }
+
+/* Mini bars for quick trend feel */
+.mini-bars {
+  display: flex; gap: 6px; align-items: flex-end; height: 84px; margin-top: 10px;
+}
+.mini-bars .bar { width: 12px; background:#10b981; border-radius: 6px 6px 0 0; }
+
+/* KPI tiles */
+.kpis {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 10px;
+}
+.kpi-tile { 
+  background:#0f172a; border:1px solid rgba(255,255,255,.08); 
+  border-radius:10px; padding:10px; 
+}
+.k-label { color:#cbd5e1; font-size:12px; }
+.k-val   { color:#34d399; font-size:18px; font-weight:800; }
+
+/* BI Consultant block */
+.consultant {
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  background:#0b1220; border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:14px;
+}
+.consultant .bi-pills { display:flex; gap:8px; flex-wrap:wrap; }
+.consultant .bi-pill  { 
+  background: rgba(16,185,129,.15); 
+  border:1px solid rgba(16,185,129,.4);
+  color:#a7f3d0; font-weight:700; font-size:12px; padding:4px 8px; border-radius:999px;
+}
+
+/* Stacked-chaos look for slide 2 */
+.sheet-stack { position: relative; }
+.sheet-chaos-1 { transform: rotate(-2.5deg); }
+.sheet-chaos-2 { transform: rotate(3deg); }
+
+/* Caption title/line tweaks for readability */
+.bi-cap-title { color:#a7f3d0; font-weight:700; margin-bottom:2px; }
+.bi-cap-line  { color:#f8fafc; }
+
+/* Slide 5 readability override */
+.explainer-slide.s5 .explainer-copy h3,
+.explainer-slide.s5 .explainer-copy p {
+  color: #0f172a;   /* slate-900 like Slide 2 */
+  font-weight: 600;
+}
+
+.explainer-slide.s5 .explainer-illus div {
+  color: #0f172a !important; /* ensure Clarity → Action text is dark */
+}
+
+/* Slide 5 override — match Slide 2 dark theme */
+.explainer-slide.s5 {
+  background: linear-gradient(135deg, #0f172a, #1e293b); /* dark gradient like Slide 2 */
+  color: #ffffff; /* light text for readability */
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 32px;
+}
+.explainer-slide.s5 h3,
+.explainer-slide.s5 p {
+  color: #ffffff; /* ensure headings and body copy are light */
+}
+
+
+/* Slide 5 caption should be pure white */
+.explainer-slide.s5 .explainer-illus .cta-line {
+    .explainer-slide.s5 h3,
+.explainer-slide.s5 p,
+  color: #ffffff !important;
+}
+
+/* Slide 5 — match Slide 2 look/format */
+.explainer-slide.s5 {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #f1f5f9;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+/* Centered, single-column layout like the consultant card */
+.explainer-slide.s5 .explainer-flex {
+  grid-template-columns: 1fr;    /* one column */
+  text-align: center;
+}
+
+/* Ensure title + line are white and readable */
+.explainer-slide.s5 .explainer-copy h3,
+.explainer-slide.s5 .explainer-copy p {
+  color: #ffffff;
+}
+
+/* Reuse the badge row style used on Slide 2, but make the pill solid emerald + white text */
+.bi-pills { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+.bi-pill  { 
+  background: rgba(16,185,129,.15); 
+  border:1px solid rgba(16,185,129,.4);
+  color:#a7f3d0; 
+  font-weight:700; 
+  font-size:14px; 
+  padding:4px 10px; 
+  border-radius:999px; 
+}
+
+/* Slide 5 variant: solid emerald + white text */
+.explainer-slide.s5 .bi-pill {
+  background: #10b981;
+  border-color: #10b981;
+  color: #ffffff;
 }

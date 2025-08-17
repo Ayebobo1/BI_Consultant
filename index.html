@@ -363,205 +363,238 @@
     }
   </script>
 
-  <!-- ====== BI Explainer: richer visuals (no external libs) ====== -->
-  <script>
-    const slides = [
-      {
-        key: "problem",
-        title: "Overwhelmed by spreadsheets?",
-        line: "Too many numbers. Not enough clarity.",
-        illus: `
-          <div class="sheet-stack">
-            <div class="sheet sheet-chaos-1">
-              <table>
-                <thead>
-                  <tr><th>SKU</th><th>Item</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Note</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>1102</td><td>Pepperoni</td><td>1,240</td><td class="bad">-320</td><td>980</td><td><span class="flag bad">dup?</span></td></tr>
-                  <tr><td>1103</td><td>Cheese</td><td>1,860</td><td>1,940</td><td class="warn">1,040</td><td><span class="flag warn">missing</span></td></tr>
-                  <tr><td>1104</td><td>Veggie</td><td>640</td><td>720</td><td class="bad">-120</td><td>—</td></tr>
-                  <tr><td>1110</td><td>Wings</td><td>1,010</td><td>830</td><td>1,060</td><td><span class="flag bad">conflict</span></td></tr>
-                  <tr><td>1201</td><td>Soda</td><td>540</td><td class="bad">-60</td><td>610</td><td>—</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="sheet sheet-chaos-2" style="position:absolute; left:14px; right:14px; top:14px;">
-              <table>
-                <thead>
-                  <tr><th>Date</th><th>Order #</th><th>Gross</th><th>Discount</th><th>Net</th><th>Source</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>3/01</td><td>#10231</td><td>1,420</td><td class="bad">-220</td><td>1,200</td><td>Online</td></tr>
-                  <tr><td>3/02</td><td>#10244</td><td>1,180</td><td>-80</td><td class="good">1,100</td><td>POS</td></tr>
-                  <tr><td>3/03</td><td>#10263</td><td>960</td><td>-40</td><td>920</td><td>POS</td></tr>
-                  <tr><td>3/04</td><td>#10270</td><td>1,340</td><td class="warn">-300</td><td>1,040</td><td>Delivery</td></tr>
-                  <tr><td>3/05</td><td>#10285</td><td>1,520</td><td>-120</td><td class="good">1,400</td><td>Online</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        `
-      },
-      {
-        key: "guide",
-        title: "That’s where I come in.",
-        line: "As your BI consultant, I turn raw data into insights you can actually use.",
-        illus: `
-          <div class="consultant">
-            <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <defs>
-                <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#10b981"/>
-                  <stop offset="100%" stop-color="#059669"/>
-                </linearGradient>
-              </defs>
-              <circle cx="64" cy="64" r="60" fill="url(#grad)" opacity=".18"/>
-              <circle cx="64" cy="44" r="18" fill="#e5e7eb"/>
-              <path d="M32 86c8-10 20-16 32-16s24 6 32 16v20H32V86z" fill="#0ea5e9"/>
-              <path d="M64 58l8 10-8 10-8-10 8-10z" fill="#f59e0b"/>
-            </svg>
-            <div>BI Consultant</div>
-            <div class="bi-pills">
-              <span class="bi-pill">Power BI</span>
-              <span class="bi-pill">Excel</span>
-              <span class="bi-pill">Google Sheets</span>
-            </div>
-          </div>
-        `
-      },
-      {
-        key: "transform",
-        title: "Your data, finally clear.",
-        line: "Watch messy tables transform into clean dashboards with KPIs, trends, and filters.",
-        illus: `
-          <div class="sheet">
+<!-- ====== BI Explainer: richer visuals (no external libs) ====== -->
+<script>
+  const slides = [
+    /* Slide 1 */
+    {
+      key: "problem",
+      title: "Overwhelmed by spreadsheets?",
+      line: "Too many numbers. Not enough clarity.",
+      illus: `
+        <div class="sheet-stack">
+          <div class="sheet sheet-chaos-1">
             <table>
               <thead>
-                <tr><th>Item</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Δ MoM</th></tr>
+                <tr><th>SKU</th><th>Item</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Note</th></tr>
               </thead>
               <tbody>
-                <tr><td>Pepperoni</td><td>1,240</td><td>1,560</td><td class="good">1,980</td><td><span class="flag good">+27%</span></td></tr>
-                <tr><td>Cheese</td><td>1,860</td><td>1,940</td><td>2,010</td><td><span class="flag good">+4%</span></td></tr>
-                <tr><td>Veggie</td><td>640</td><td>720</td><td>760</td><td><span class="flag good">+6%</span></td></tr>
-                <tr><td>Wings</td><td>1,010</td><td>1,060</td><td>1,120</td><td><span class="flag good">+6%</span></td></tr>
-              </tbody>
-            </table>
-
-            <div class="mini-bars">
-              ${[30,56,42,70,50,82,64].map(h => `<div class="bar" style="height:${h}px"></div>`).join('')}
-            </div>
-          </div>
-        `
-      },
-      {
-        key: "confidence",
-        title: "Decisions made with confidence.",
-        line: "Know what’s working and what’s not — because the numbers are finally clear.",
-        illus: `
-          <div class="sheet">
-            <div class="kpis">
-              <div class="kpi-tile"><div class="k-label">Sales</div><div class="k-val">↑ 22%</div></div>
-              <div class="kpi-tile"><div class="k-label">New Customers</div><div class="k-val">+35</div></div>
-              <div class="kpi-tile"><div class="k-label">Repeat Rate</div><div class="k-val">41%</div></div>
-            </div>
-
-            <svg class="sparkline" viewBox="0 0 200 60" preserveAspectRatio="none">
-              <polyline fill="none" stroke="#10b981" stroke-width="3"
-                points="0,45 20,42 40,38 60,32 80,28 100,25 120,22 140,26 160,20 180,18 200,15"/>
-            </svg>
-
-            <table>
-              <thead>
-                <tr><th>Customer</th><th>Orders</th><th>Avg Spend</th><th>Status</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>J. Rivera</td><td>6</td><td>$28.40</td><td><span class="flag good">Loyal</span></td></tr>
-                <tr><td>M. Patel</td><td>3</td><td>$22.10</td><td><span class="flag warn">At Risk</span></td></tr>
-                <tr><td>T. Nguyen</td><td>4</td><td>$31.70</td><td><span class="flag good">Growing</span></td></tr>
+                <tr><td>1102</td><td>Pepperoni</td><td>1,240</td><td class="bad">-320</td><td>980</td><td><span class="flag bad">dup?</span></td></tr>
+                <tr><td>1103</td><td>Cheese</td><td>1,860</td><td>1,940</td><td class="warn">1,040</td><td><span class="flag warn">missing</span></td></tr>
+                <tr><td>1104</td><td>Veggie</td><td>640</td><td>720</td><td class="bad">-120</td><td>—</td></tr>
+                <tr><td>1110</td><td>Wings</td><td>1,010</td><td>830</td><td>1,060</td><td><span class="flag bad">conflict</span></td></tr>
+                <tr><td>1201</td><td>Soda</td><td>540</td><td class="bad">-60</td><td>610</td><td>—</td></tr>
               </tbody>
             </table>
           </div>
-        `
-      },
-      {
-        key: "hook",
-        title: "Your business already has the answers — I help you see them clearly.",
-        line: "",
-        illus: `
-          <div style="text-align:center">
-            <svg viewBox="0 0 220 90" width="220" height="90">
-              <path d="M10 60 C 40 20, 80 20, 110 60 S 180 100, 210 60" fill="none" stroke="#10b981" stroke-width="5" />
-              <circle cx="210" cy="60" r="7" fill="#10b981"/>
-            </svg>
-            <div style="color:#d1fae5; font-weight:700;">Clarity → Action</div>
-          </div>
-        `
-      }
-    ];
 
-    let idx = 0, playing = false, timer, showCC = true, narrating = false;
-    const root = document.getElementById("explainer-root");
-    const btnCC = document.getElementById("btn-cc");
-    const btnNarrate = document.getElementById("btn-narrate");
-    const btnReplay = document.getElementById("btn-replay");
-
-    function renderSlide(i) {
-      root.innerHTML = "";
-      const wrap = document.createElement("div");
-      wrap.className = "explainer-slide active";
-      wrap.innerHTML = `
-        <div class="explainer-flex">
-          <div class="explainer-copy">
-            <h3>${slides[i].title}</h3>
-            ${slides[i].line ? `<p>${slides[i].line}</p>` : ``}
+          <div class="sheet sheet-chaos-2" style="position:absolute; left:14px; right:14px; top:14px;">
+            <table>
+              <thead>
+                <tr><th>Date</th><th>Order #</th><th>Gross</th><th>Discount</th><th>Net</th><th>Source</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>3/01</td><td>#10231</td><td>1,420</td><td class="bad">-220</td><td>1,200</td><td>Online</td></tr>
+                <tr><td>3/02</td><td>#10244</td><td>1,180</td><td>-80</td><td class="good">1,100</td><td>POS</td></tr>
+                <tr><td>3/03</td><td>#10263</td><td>960</td><td>-40</td><td>920</td><td>POS</td></tr>
+                <tr><td>3/04</td><td>#10270</td><td>1,340</td><td class="warn">-300</td><td>1,040</td><td>Delivery</td></tr>
+                <tr><td>3/05</td><td>#10285</td><td>1,520</td><td>-120</td><td class="good">1,400</td><td>Online</td></tr>
+              </tbody>
+            </table>
           </div>
-          <div class="explainer-illus">${slides[i].illus}</div>
         </div>
-        ${showCC && slides[i].line ? `<div class="explainer-caption"><div class="bi-cap-title">${slides[i].title}</div><div class="bi-cap-line">${slides[i].line}</div></div>` : ""}`;
-      root.appendChild(wrap);
-    }
+      `
+    },
 
-    function play() {
-      playing = true;
-      idx = 0;
-      renderSlide(idx);
-      clearInterval(timer);
-      timer = setInterval(() => {
-        idx++;
-        if (idx < slides.length) {
-          renderSlide(idx);
-        } else {
-          clearInterval(timer);
-          playing = false;
-        }
-      }, 3400);
-    }
+    /* Slide 2 — (darker text) */
+    {
+      key: "guide",
+      title: "That’s where I come in.",
+      line: "As your BI consultant, I turn raw data into insights you can actually use.",
+      illus: `
+        <div class="consultant">
+          <svg viewBox="0 0 160 120" width="160" height="120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#10b981"/>
+                <stop offset="100%" stop-color="#059669"/>
+              </linearGradient>
+            </defs>
+            <!-- aura -->
+            <circle cx="80" cy="60" r="58" fill="url(#grad)" opacity=".18"/>
+            <!-- head -->
+            <circle cx="80" cy="38" r="16" fill="#e5e7eb"/>
+            <!-- torso / tie -->
+            <path d="M52 80c8-10 20-16 28-16s20 6 28 16v18H52V80z" fill="#0ea5e9"/>
+            <path d="M80 54l6 8-6 8-6-8 6-8z" fill="#f59e0b"/>
+            <!-- laptop -->
+            <rect x="46" y="92" width="68" height="12" rx="4" fill="#0b1220" stroke="#94a3b8" stroke-opacity=".3"/>
+            <rect x="50" y="94" width="60" height="3" rx="2" fill="#7dd3fc"/>
+          </svg>
+          <div>BI Consultant</div>
+          <div class="bi-pills">
+            <span class="bi-pill">Power BI</span>
+            <span class="bi-pill">Excel</span>
+            <span class="bi-pill">Google Sheets</span>
+          </div>
+        </div>
+      `
+    },
 
-    btnReplay.addEventListener("click", play);
-    btnCC.addEventListener("click", ()=>{ showCC=!showCC; renderSlide(idx); });
-    btnNarrate.addEventListener("click", ()=>{
-      narrating = !narrate;
-      if (narrating && "speechSynthesis" in window) {
-        window.speechSynthesis.cancel();
-        (async ()=>{
-          const speak = (text, delay=0)=> new Promise(res=>{
-            const u = new SpeechSynthesisUtterance(text); u.rate=1.05; u.onend=res;
-            setTimeout(()=>window.speechSynthesis.speak(u), delay);
-          });
-          for (let s of slides) {
-            const text = [s.title, s.line].filter(Boolean).join(". ");
-            if (text) await speak(text, 80);
-          }
-          narrating=false;
-        })();
+    /* Slide 3 — “clear data” */
+    {
+      key: "transform",
+      title: "Your data, finally clear.",
+      line: "Watch messy tables transform into clean dashboards with KPIs, trends, and filters.",
+      illus: `
+        <div class="sheet">
+          <table>
+            <thead>
+              <tr><th>Item</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Δ MoM</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Pepperoni</td><td>1,240</td><td>1,560</td><td class="good">1,980</td><td><span class="flag good">+27%</span></td></tr>
+              <tr><td>Cheese</td><td>1,860</td><td>1,940</td><td>2,010</td><td><span class="flag good">+4%</span></td></tr>
+              <tr><td>Veggie</td><td>640</td><td>720</td><td>760</td><td><span class="flag good">+6%</span></td></tr>
+              <tr><td>Wings</td><td>1,010</td><td>1,060</td><td>1,120</td><td><span class="flag good">+6%</span></td></tr>
+            </tbody>
+          </table>
+
+          <div class="mini-bars">
+            ${[32,56,44,74,50,84,62].map(h => `<div class="bar" style="height:${h}px"></div>`).join('')}
+          </div>
+        </div>
+      `
+    },
+
+    /* Slide 4 — “confidence” */
+    {
+      key: "confidence",
+      title: "Decisions made with confidence.",
+      line: "Know what’s working and what’s not — because the numbers are finally clear.",
+      illus: `
+        <div class="sheet">
+          <div class="kpis">
+            <div class="kpi-tile"><div class="k-label">Sales</div><div class="k-val">↑ 22%</div></div>
+            <div class="kpi-tile"><div class="k-label">New Customers</div><div class="k-val">+35</div></div>
+            <div class="kpi-tile"><div class="k-label">Repeat Rate</div><div class="k-val">41%</div></div>
+          </div>
+
+          <svg class="sparkline" viewBox="0 0 200 60" preserveAspectRatio="none">
+            <polyline fill="none" stroke="#10b981" stroke-width="3"
+              points="0,45 20,42 40,38 60,32 80,28 100,25 120,22 140,26 160,20 180,18 200,15"/>
+          </svg>
+
+          <table>
+            <thead>
+              <tr><th>Customer</th><th>Orders</th><th>Avg Spend</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>J. Rivera</td><td>6</td><td>$28.40</td><td><span class="flag good">Loyal</span></td></tr>
+              <tr><td>M. Patel</td><td>3</td><td>$22.10</td><td><span class="flag warn">At Risk</span></td></tr>
+              <tr><td>T. Nguyen</td><td>4</td><td>$31.70</td><td><span class="flag good">Growing</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      `
+    },
+
+    /* Slide 5 — (darker text) final hook */
+{
+  key: "hook",
+  title: "Your business already has the answers — I help you see them clearly.",
+  line: "One source of truth. Interactive dashboards. Faster decisions.",
+  illus: `
+    <div style="text-align:center; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:20px;">
+      <svg viewBox="0 0 220 90" width="220" height="90" aria-hidden="true">
+        <path d="M10 60 C 40 20, 80 20, 110 60 S 180 100, 210 60" 
+              fill="none" stroke="#10b981" stroke-width="5" />
+        <circle cx="210" cy="60" r="7" fill="#10b981"/>
+      </svg>
+
+      <!-- pill row styled like Slide 2's Power BI/Excel/Sheets -->
+      <div class="bi-pills" style="margin-top:12px;">
+        <span class="bi-pill">Clarity → Action</span>
+      </div>
+    </div>
+  `
+}
+
+
+
+
+  ];
+
+  let idx = 0, playing = false, timer, showCC = false, narrating = false;
+  const root = document.getElementById("explainer-root");
+  const btnCC = document.getElementById("btn-cc");
+  const btnNarrate = document.getElementById("btn-narrate");
+  const btnReplay = document.getElementById("btn-replay");
+
+  function renderSlide(i) {
+    root.innerHTML = "";
+    const wrap = document.createElement("div");
+    // add slide index class for targeted CSS (.s2, .s5)
+    wrap.className = `explainer-slide active s${i+1}`;
+    wrap.innerHTML = `
+      <div class="explainer-flex">
+        <div class="explainer-copy">
+          <h3>${slides[i].title}</h3>
+          ${slides[i].line ? `<p>${slides[i].line}</p>` : ``}
+        </div>
+        <div class="explainer-illus">${slides[i].illus}</div>
+      </div>
+      ${showCC && slides[i].line
+        ? `<div class="explainer-caption">
+            <div class="bi-cap-title">${slides[i].title}</div>
+            <div class="bi-cap-line">${slides[i].line}</div>
+           </div>`
+        : ""}`;
+    root.appendChild(wrap);
+  }
+
+  function play() {
+    playing = true;
+    idx = 0;
+    renderSlide(idx);
+    clearInterval(timer);
+    timer = setInterval(() => {
+      idx++;
+      if (idx < slides.length) {
+        renderSlide(idx);
       } else {
-        window.speechSynthesis.cancel();
+        clearInterval(timer);
+        playing = false;
       }
-    });
+    }, 3400);
+  }
 
-    // autoplay once on load
-    play();
-  </script>
+  btnReplay.addEventListener("click", play);
+  btnCC.addEventListener("click", ()=>{ showCC=!showCC; renderSlide(idx); });
+  btnNarrate.addEventListener("click", ()=>{
+    narrating = !narrating;
+    if (narrating && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+      (async ()=>{
+        const speak = (text, delay=0)=> new Promise(res=>{
+          const u = new SpeechSynthesisUtterance(text); u.rate=1.05; u.onend=res;
+          setTimeout(()=>window.speechSynthesis.speak(u), delay);
+        });
+        for (let s of slides) {
+          const text = [s.title, s.line].filter(Boolean).join(". ");
+          if (text) await speak(text, 80);
+        }
+        narrating=false;
+      })();
+    } else {
+      window.speechSynthesis.cancel();
+    }
+  });
+
+  // autoplay once on load
+  play();
+</script>
+
+
 </body>
 </html>
