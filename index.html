@@ -281,6 +281,64 @@
       </div>
     </section>
 
+    <!-- FAQ Section -->
+<section id="faq" class="faq-section">
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">What kinds of dashboards do you build?</button>
+      <div class="faq-answer">
+        <p>I specialize in sales, marketing, and operations dashboards built in Power BI and Excel. I focus on clarity, action, and speed—without the need for heavy IT resources.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Do I need to buy new software?</button>
+      <div class="faq-answer">
+        <p>No. Most of my work leverages tools you already use like Excel, Power BI, and Google Sheets. My goal is to minimize cost and maximize adoption.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">How quickly can you deliver results?</button>
+      <div class="faq-answer">
+        <p>Most projects take between 2–4 weeks depending on complexity. I also offer rapid-turnaround packages for quick wins and pilot dashboards.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">How does my raw data need to be organized?</button>
+      <div class="faq-answer">
+        <p>For the fastest turnaround, I recommend providing data in structured formats like Excel, Google Sheets, QuickBooks, Toast, Square, Shopify, or CSV files. These formats integrate smoothly into Power BI and Excel dashboards. Data from PDFs or Word documents is also possible, but may require additional cleanup, which can extend the timeline. If you’re unsure, I can guide you through preparing your data for the most efficient setup.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Do you offer training manuals, videos, or sessions for my team?</button>
+      <div class="faq-answer">
+        <p>Yes. Every project includes a training package to ensure your team is confident using the dashboards. This typically includes live training sessions (recorded for later reference) tailored to your business workflows. My goal is to make sure you don’t just receive a dashboard — you know how to use it to drive results.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">If I start with one option, can I scale up later? What does that cost?</button>
+      <div class="faq-answer">
+        <p>Absolutely. I design dashboards with scalability in mind, so as your data needs grow, we can expand functionality without starting from scratch. The cost of scaling depends on the level of complexity — for example, adding new data sources, building advanced visualizations, or integrating predictive analytics. I’ll provide a clear upgrade path and pricing upfront so you can plan ahead.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Are there limitations to the amount of data your dashboards can manage?</button>
+      <div class="faq-answer">
+        <p>Power BI and Excel are powerful tools capable of handling large datasets. However, performance depends on the scope of the project and the way the data is structured. For small to mid-sized businesses, my dashboards run seamlessly. If you anticipate enterprise-level datasets (millions of rows), I can implement strategies like data modeling, aggregation, and cloud integrations (Azure, AWS, etc.) to ensure speed and reliability.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
     <!-- CONTACT -->
     <section class="section" id="contact">
       <div class="container">
@@ -596,6 +654,15 @@
 
   // autoplay once on load
   play();
+</script>
+
+<script>
+  document.querySelectorAll(".faq-question").forEach((button) => {
+    button.addEventListener("click", () => {
+      const faqItem = button.parentElement;
+      faqItem.classList.toggle("active");
+    });
+  });
 </script>
 
 
