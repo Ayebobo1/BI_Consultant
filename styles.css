@@ -480,4 +480,161 @@ input:focus, textarea:focus{outline:none;border-color:#94d9c0; box-shadow:0 0 0 
 
 .faq-item.active .faq-answer {
   display: block;
+
+
 }
+
+/* =========================
+   Secure Upload Section (gradient + watermark + animated lock)
+   ========================= */
+#upload {
+  position: relative;
+  background: linear-gradient(135deg, #064e3b, #10b981);
+  border-radius: 20px;
+  padding: 56px 20px;
+  margin-top: 40px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(0,0,0,.25);
+  overflow: hidden;
+}
+
+/* Subtle shield watermark in the corner */
+#upload::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 120px;
+  height: 120px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' opacity='0.08'><path d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18L18.6 6.1V11c0 4.29-2.96 8.49-6.6 9.9C8.36 19.49 5.4 15.29 5.4 11V6.1L12 3.18zm-1 6.32a2 2 0 0 0-2 2v2a2 2 0 0 0 4 0v-2a2 2 0 0 0-2-2z'/></svg>") no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+}
+
+/* Animated lock icon above the title */
+.lock-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+.lock-icon svg {
+  transform-origin: center top;
+  animation: lockClose 1.2s ease forwards;
+}
+@keyframes lockClose {
+  0%   { transform: scaleY(0.4) translateY(-12px); opacity: 0; }
+  60%  { transform: scaleY(1.1) translateY(  2px); opacity: 1; }
+  100% { transform: scaleY(1)   translateY(  0);   opacity: 1; }
+}
+
+/* Title and text layering above the watermark */
+#upload h2,
+#upload .subtitle,
+#upload .btn-primary,
+#upload .small {
+  position: relative;
+  z-index: 1;
+}
+
+#upload h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+#upload .subtitle {
+  color: #e0f2f1;
+  margin-bottom: 20px;
+}
+
+#upload .btn-primary {
+  background: #fff;
+  color: #064e3b;
+  border: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  transition: background .3s, color .3s, transform .15s ease;
+}
+#upload .btn-primary:hover {
+  background: #f0fdf4;
+  color: #047857;
+  transform: translateY(-1px);
+}
+
+#upload .small {
+  color: #e0f2f1;
+  margin-top: 12px;
+}
+
+/* Keep the existing #upload styles you added earlier */
+
+/* Space buttons nicely on one line (wrap on mobile) */
+.upload-cta {
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Outline button (secondary CTA) */
+.btn-outline {
+  border: 1px solid rgba(255,255,255,.7);
+  color: #ffffff;
+  background: transparent;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .25s ease, transform .15s ease;
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,.12);
+  transform: translateY(-1px);
+}
+
+/* Collapsible details */
+.upload-details {
+  margin-top: 14px;
+  text-align: left;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.upload-details > summary {
+  cursor: pointer;
+  list-style: none;
+  color: #e0f2f1;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 10px;
+  padding: 10px 12px;
+  transition: background .25s ease;
+}
+.upload-details > summary:hover {
+  background: rgba(255,255,255,.08);
+}
+.upload-details > div {
+  margin-top: 10px;
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 12px;
+  padding: 12px;
+  color: #e6fffb;
+}
+.upload-details ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.upload-details li {
+  margin: 6px 0;
+}
+
