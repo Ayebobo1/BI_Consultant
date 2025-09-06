@@ -725,5 +725,163 @@
 </script>
 
 
+<script>
+/* ===== Reviews loader (Google Forms Sheet) with diagnostics + CSV fallback ===== */
+
+(async function loadReviews() {
+  // --- CONFIG: update these ---
+  const SHEET_ID  = "1gZUWWyL7LkZgvzmHUi706LQYSRzlPJa-EC5KXBQuO7k";     // e.g. 1gZUWWyL7LkZgvzmHUi706LQYSRzlPJa-EC5KXBQuO7k
+  const SHEET_TAB = "Form_Responses";       // exact tab name with responses (case-sensitive)
+  // Optional: if you know the gid for SHEET_TAB, set it here (string or number). If not, the script tries to find it.
+  let   SHEET_GID = "563884249"; // e.g. "0" or "123456789"
+  // ----------------------------
+
+  const container = document.getElementById("reviews-container");
+  if (!container) return;
+
+  const log = (...args) => console.log("[Reviews]", ...args);
+  const warn = (...args) => console.warn("[Reviews]", ...args);
+  const errorUI = (msg) => {
+    container.insertAdjacentHTML(
+      "beforeend",
+      `<div class="card review-card">
+        <p class="small">Couldn’t load live reviews right now.</p>
+        <p class="small">${msg}</p>
+        <p class="small">You can still <a href="https://docs.google.com/forms/d/e/1FAIpQLSed40WvQRM9WMWoXmnWzcujDJPBK803X1TKJ61IYLxqBhIy4g/viewform" target="_blank" rel="noopener">leave a review here</a>.</p>
+      </div>`
+    );
+  };
+
+  const toStars = (val) => {
+    const n = Math.max(0, Math.min(5, Number(val) || 0));
+    return "★★★★★".slice(0, n) + "☆☆☆☆☆".slice(0, 5 - n);
+  };
+  const fmtDate = (v) => {
+    const d = new Date(v);
+    return isNaN(d.getTime()) ? String(v) : d.toLocaleDateString("en-US");
+  };
+
+  const renderCards = (rows, colIdx) => {
+    container.innerHTML = "";
+    if (!rows.length) {
+      container.innerHTML = `
+        <div class="card review-card">
+          <p class="small">No reviews yet — be the first to
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSed40WvQRM9WMWoXmnWzcujDJPBK803X1TKJ61IYLxqBhIy4g/viewform" target="_blank" rel="noopener">leave a review</a>.</p>
+        </div>`;
+      return;
+    }
+    rows.slice().reverse().forEach(r => {
+      const ts   = colIdx.timestamp >= 0 ? r[colIdx.timestamp] : "";
+      const name = colIdx.name      >= 0 ? r[colIdx.name]      : "";
+      const comp = colIdx.company   >= 0 ? r[colIdx.company]   : "";
+      const city = colIdx.city      >= 0 ? r[colIdx.city]      : "";
+      const rate = colIdx.rating    >= 0 ? r[colIdx.rating]    : "";
+      const text = colIdx.review    >= 0 ? r[colIdx.review]    : "";
+      if (!text && !name) return;
+
+      const who = [name, comp || city].filter(Boolean).join(" · ");
+      const card = document.createElement("div");
+      card.className = "card review-card";
+      card.innerHTML = `
+        <div class="review-stars">${toStars(rate)}</div>
+        ${text ? `<p>“${String(text).replace(/"/g, "&quot;")}”</p>` : ``}
+        <p class="small">${who ? who : ""} ${ts ? " · " + fmtDate(ts) : ""}</p>
+      `;
+      container.appendChild(card);
+    });
+  };
+
+  // --------- Try GViz JSON first ---------
+  const gvizUrl = `https://docs.google.com/spreadsheets/d/${encodeURIComponent(SHEET_ID)}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_TAB)}`;
+
+  async function tryGViz() {
+    log("Trying GViz JSON:", gvizUrl);
+    const res = await fetch(gvizUrl, { cache: "no-store" });
+    const txt = await res.text();
+    // If it returns a Google sign-in HTML page, this will fail:
+    const jsonStart = txt.indexOf("{");
+    const jsonEnd   = txt.lastIndexOf("}");
+    if (jsonStart === -1 || jsonEnd === -1) {
+      throw new Error("GViz did not return JSON (likely private sheet or wrong tab name)");
+    }
+    const data = JSON.parse(txt.slice(jsonStart, jsonEnd + 1));
+    if (!data.table) throw new Error("GViz payload missing 'table'");
+    const cols = data.table.cols || [];
+    const rows = (data.table.rows || []).map(r => (r.c || []).map(c => (c ? c.v : "")));
+
+    // Column indexes by fuzzy match
+    const find = (regex) => cols.findIndex(c => regex.test((c.label || "").trim()));
+    const colIdx = {
+      timestamp: find(/timestamp|date/i),
+      name:      find(/name/i),
+      company:   find(/company|business|org|location/i),
+      rating:    find(/rating|stars/i),
+      review:    find(/review|testimonial|feedback|comments?/i),
+      approved:  find(/approved|Yes|No/i),
+    };
+    log("GViz col indexes:", colIdx);
+    renderCards(rows, colIdx);
+    return true;
+  }
+
+  // --------- If GViz fails, try CSV export (needs gid) ---------
+  async function findGid() {
+    if (SHEET_GID != null) return String(SHEET_GID);
+    // Trick: the "copy-to" dialog lists sheet names & gids in HTML; we can scrape a simple endpoint:
+    const htmlUrl = `https://docs.google.com/spreadsheets/d/${encodeURIComponent(SHEET_ID)}/edit#gid=0`;
+    const res = await fetch(htmlUrl, { mode: "no-cors" });
+    // no-cors response is opaque; we can’t read it.
+    // So we can’t auto-read gid reliably without HTML access.
+    // -> Ask user to provide gid manually if CSV fallback is needed.
+    throw new Error("CSV fallback requires the tab gid. Open your responses tab and copy the number after #gid= in the URL, then set SHEET_GID in the config.");
+  }
+
+  async function tryCSV() {
+    const gid = await findGid(); // throws if not set
+    const csvUrl = `https://docs.google.com/spreadsheets/d/${encodeURIComponent(SHEET_ID)}/export?format=csv&gid=${encodeURIComponent(gid)}`;
+    log("Trying CSV export:", csvUrl);
+    const res = await fetch(csvUrl, { cache: "no-store" });
+    if (!res.ok) throw new Error("CSV export failed (check share settings and gid)");
+    const csv = await res.text();
+
+    // Minimal CSV parser
+    const lines = csv.split(/\r?\n/).filter(Boolean);
+    const header = lines[0].split(",");
+    const rows = lines.slice(1).map(line => {
+      // naive split (works if your reviews don’t contain embedded commas; if they do, we can upgrade)
+      return line.split(",");
+    });
+
+    const idxOf = (regex) => header.findIndex(h => regex.test(h.trim()));
+    const colIdx = {
+      timestamp: find(/timestamp|date/i),
+      name:      find(/name/i),
+      company:   find(/company|business|org|location/i),
+      rating:    find(/rating|stars/i),
+      review:    find(/review|testimonial|feedback|comments?/i),
+      approved:  find(/approved|Yes|No/i),
+    };
+    log("CSV col indexes:", colIdx);
+    renderCards(rows, colIdx);
+    return true;
+  }
+
+  try {
+    await tryGViz();
+  } catch (e1) {
+    warn("GViz failed:", e1.message);
+    try {
+      await tryCSV();
+    } catch (e2) {
+      warn("CSV fallback failed:", e2.message);
+      errorUI("Tip: Make sure the sheet is shared as 'Anyone with the link: Viewer' and the tab name matches exactly. If trying CSV, set the tab's gid in the script config.");
+    }
+  }
+})();
+</script>
+
+
+
 </body>
 </html>
