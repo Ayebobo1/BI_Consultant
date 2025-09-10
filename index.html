@@ -1,381 +1,117 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>EA Analytics Consulting — Turning local data into local decisions</title>
-  <meta name="description" content="DMV-focused BI dashboards in Power BI & Excel. Sales, customers, inventory, and marketing—made simple." />
-  <meta property="og:title" content="Ebo Aye Insights — Turning local data into local decisions" />
-  <meta property="og:description" content="Simple, actionable dashboards. No IT lift. Power BI / Excel." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/og-card.png" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jon Doe Insights — Turning local data into local decisions</title>
+  <meta name="description" content="DMV-focused BI dashboards in Power BI & Excel. Sales, customers, inventory, and marketing—made simple.">
+  <meta property="og:image" content="/assets/og-card.png">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><rect width=%22128%22 height=%22128%22 fill=%22%2310b981%22/><text x=%2250%25%22 y=%2258%25%22 text-anchor=%22middle%22 dominant-baseline=%22central%22 font-family=%22Arial%22 font-size=%2272%22 fill=%22white%22>BI</text></svg>">
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- Minimal page-scoped polish -->
-  <style>
-    .hero { position: relative; overflow: hidden; }
-    .hero-inner { display:grid; grid-template-columns: 1.2fr .8fr; gap:24px; align-items:center; }
-    .tagline-badge { position:absolute; right:20px; top:18px; background:rgba(16,185,129,.12); color:#a7f3d0;
-      border:1px solid rgba(16,185,129,.35); padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.06em }
-    .fade-in { opacity:0; transform:translateY(6px); animation:fadeIn .6s ease-out .1s forwards; }
-    .fade-in-2 { opacity:0; transform:translateY(6px); animation:fadeIn .6s ease-out .25s forwards; }
-    .fade-in-3 { opacity:0; transform:translateY(6px); animation:fadeIn .6s ease-out .4s forwards; }
-    @keyframes fadeIn { to { opacity:1; transform:none; } }
-    .hero-photo-wrap { display:flex; align-items:center; justify-content:center; }
-    .hero-photo { width:100%; max-width:360px; aspect-ratio:1/1; object-fit:cover; border-radius:9999px;
-      border:1px solid #a7f3d0; box-shadow:0 10px 30px rgba(2,6,23,.25) }
-    @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .tagline-badge { position:static; display:inline-block; margin-bottom:10px; }
-      .hero-photo { max-width:260px; margin:0 auto; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Optional GA4: replace G-XXXXXXX -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXX');</script> -->
 </head>
-
 <body>
-  <!-- HERO -->
   <header class="hero">
     <div class="container">
-      <!-- Hook -->
-      <h1 class="hook animate-hook">
-        <em>Your business already has the <span class="highlight">answers</span> — I help you see them <span class="highlight">clearly</span>.</em>
-      </h1>
-
-      <span class="tagline-badge">Turning local data into local decisions</span>
-
-      <div class="hero-inner">
-        <!-- Left: copy -->
-        <div class="fade-in">
-          <span class="badge">International BI consultant</span>
-          <h2 class="fade-in-2">
-            EA Analytics Consulting<br>
-            <span style="font-weight:400; font-size:0.9em;">Data &amp; Business Intelligence Insights</span>
-          </h2>
-          <p class="subtitle fade-in-3">
-            I build no-nonsense dashboards in Power BI &amp; Excel that show you exactly what’s working—sales,
-            customers, inventory, and marketing—without new software or IT lift.
-          </p>
-          <div class="cta fade-in-3">
-            <a class="btn btn-primary" href="https://calendly.com/ebosele-ayewoh/30min" target="_blank" rel="noopener">Book a 30-min intro</a>
-            <a class="btn btn-ghost" href="#dashboards">See sample dashboards</a>
-            <a class="btn btn-ghost" href="#about">About me</a>
-          </div>
-          <p class="small fade-in-3" style="margin-top:8px;">
-            📧 <a href="mailto:EAAnalyticsConsulting@gmail.com" style="color:#a7f3d0;">EAAnalyticsConsulting@gmail.com</a>
-            &nbsp; • &nbsp; 📞 (216) 570-3324
-            &nbsp; • &nbsp; 🔗 <a href="https://www.linkedin.com/in/ebosele-ayewoh-mba-a9320875/" style="color:#a7f3d0;">LinkedIn</a>
-          </p>
-        </div>
-
-        <!-- Right: headshot -->
-        <div class="hero-photo-wrap fade-in-2">
-          <img class="hero-photo" src="assets/Headshot.png" alt="Professional headshot of Ebosele Ayewoh" loading="lazy">
-        </div>
+      <span class="badge">DMV-focused BI consultant</span>
+      <h1>Jon Doe Insights</h1>
+      <p class="subtitle">I build no‑nonsense dashboards in Power BI & Excel that show you exactly what’s working—sales, customers, inventory, and marketing—without new software or IT lift.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://calendly.com/YOUR-CALENDLY/intro-call" target="_blank">Book a 15‑min intro</a>
+        <a class="btn btn-ghost" href="#dashboards">See sample dashboards</a>
       </div>
+      <p class="small" style="margin-top:8px;">📧 jon@jondoeinsights.com &nbsp; • &nbsp; 📞 (XXX) XXX‑XXXX &nbsp; • &nbsp; 🔗 <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" style="color:#a7f3d0;">LinkedIn</a></p>
     </div>
   </header>
 
   <main>
-    <!-- EXPLAINER ANIMATION (vanilla JS) -->
-    <section id="explainer" class="section">
-      <div class="container">
-        <div class="kicker">Explainer</div>
-        <h2>From spreadsheets → clear dashboards</h2>
-        <div id="explainer-root" class="explainer-stage"></div>
-        <div class="explainer-controls">
-          <button id="btn-cc" class="btn">CC</button>
-          <button id="btn-narrate" class="btn">Narrate</button>
-          <button id="btn-replay" class="btn btn-primary">Replay</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- BENEFITS -->
     <section class="section">
       <div class="container">
         <div class="kicker">Benefits</div>
         <h2>What you get—fast, visual, actionable</h2>
         <div class="grid grid-3">
-          <div class="card">
-            <strong>Revenue clarity</strong>
-            <p>See top-selling items, peak hours, and promo ROI at a glance.</p>
-          </div>
-          <div class="card">
-            <strong>Customer retention</strong>
-            <p>Find repeat buyers, average LTV, and the channels bringing them in.</p>
-          </div>
-          <div class="card">
-            <strong>Ops &amp; inventory</strong>
-            <p>Track stock, avoid stockouts, and align purchasing with demand.</p>
-          </div>
+          <div class="card"><strong>Revenue clarity</strong><p>See top‑selling items, peak hours, and promo ROI at a glance.</p></div>
+          <div class="card"><strong>Customer retention</strong><p>Find repeat buyers, average LTV, and the channels bringing them in.</p></div>
+          <div class="card"><strong>Ops & inventory</strong><p>Track stock, avoid stockouts, and align purchasing with demand.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- DASHBOARD GALLERY -->
     <section id="dashboards" class="section">
       <div class="container">
         <div class="kicker">Templates</div>
-        <h2>Five plug-and-play dashboards (fully customizable)</h2>
-
+        <h2>Five plug‑and‑play dashboards (fully customizable)</h2>
         <div class="grid grid-2 gallery">
-          <!-- 1. Sales & Menu Performance -->
-          <a class="card dash" href="https://app.fabric.microsoft.com/view?r=eyJrIjoiYjQ0NTU5OGMtNDM4YS00NGY5LWFhZjAtMjUxZDMwNWEzOGYyIiwidCI6IjIxMzI0NmVkLWI0MGItNDYwOC04YmUwLTIyYmE0Mzc2YTA4ZCIsImMiOjF9" target="_blank" rel="noopener noreferrer" title="Open Sales & Menu Performance dashboard">
-            <img src="assets/SalesMenu.png" alt="Sales & Menu Performance" />
-            <div class="overlay"><div class="overlay-text">Click to explore →</div></div>
-            <div class="caption">Sales &amp; Menu Performance</div>
-          </a>
-
-          <!-- 2. Customer Insights & Retention -->
-          <a class="card dash" href="https://app.fabric.microsoft.com/view?r=eyJrIjoiNGI5NDI1NDgtM2U0Ni00ZWJkLWExYWQtYzFjZTRhYzU4M2UzIiwidCI6IjIxMzI0NmVkLWI0MGItNDYwOC04YmUwLTIyYmE0Mzc2YTA4ZCIsImMiOjF9" target="_blank" rel="noopener noreferrer" title="Open Customer Insights & Retention dashboard">
-            <img src="assets/Customer_Insights.png" alt="Customer Insights & Retention" />
-            <div class="overlay"><div class="overlay-text">Click to explore →</div></div>
-            <div class="caption">Customer Insights &amp; Retention</div>
-          </a>
-
-          <!-- 3. Event & Promotion Impact -->
-          <a class="card dash" href="https://app.fabric.microsoft.com/view?r=eyJrIjoiYmE5ODg4NDctZjBhMC00OTYwLWJiN2ItNTk3ZDM0NjM2YThkIiwidCI6IjIxMzI0NmVkLWI0MGItNDYwOC04YmUwLTIyYmE0Mzc2YTA4ZCIsImMiOjF9" target="_blank" rel="noopener noreferrer" title="Open Event & Promotion Impact dashboard">
-            <img src="assets/Event_Social.png" alt="Event & Promotion Impact" />
-            <div class="overlay"><div class="overlay-text">Click to explore →</div></div>
-            <div class="caption">Event &amp; Promotion Impact</div>
-          </a>
-
-          <!-- 4. Healthcare & People -->
-          <a class="card dash" href="https://app.fabric.microsoft.com/view?r=eyJrIjoiZTNlZGNlMDMtZTM0NS00YjI0LWIyNjQtNmMxODQ4YWM1YzM0IiwidCI6IjIxMzI0NmVkLWI0MGItNDYwOC04YmUwLTIyYmE0Mzc2YTA4ZCIsImMiOjF9" target="_blank" rel="noopener noreferrer" title="Open Inventory & Cost Control dashboard">
-            <img src="assets/Hospital.png" alt="Healthcare & Peoplel" />
-            <div class="overlay"><div class="overlay-text">Click to explore →</div></div>
-            <div class="caption">Healthcare &amp; People</div>
-          </a>
-
-          <!-- 5. Marketing & Social -->
-          <a class="card dash" href="https://app.fabric.microsoft.com/view?r=eyJrIjoiOTIzOWVkZTItMjA1MC00NzYzLTk0ZmQtZDljYTEyZDBlMWEyIiwidCI6IjIxMzI0NmVkLWI0MGItNDYwOC04YmUwLTIyYmE0Mzc2YTA4ZCIsImMiOjF9" target="_blank" rel="noopener noreferrer" title="Open Marketing & Social dashboard">
-            <img src="assets/MarketingSocial.png" alt="Marketing & Social" />
-            <div class="overlay"><div class="overlay-text">Click to explore →</div></div>
-            <div class="caption">Marketing &amp; Social</div>
-          </a>
-
-          <!-- 6. Customized & Tailored -->
-          <a class="card dash" href="https://app.fabric.microsoft.com/view?r=eyJrIjoiMmNlNzkyMzctMDc0Yy00YzQyLTgxYjgtMzEzNjE5ZDA4NTdhIiwidCI6IjIxMzI0NmVkLWI0MGItNDYwOC04YmUwLTIyYmE0Mzc2YTA4ZCIsImMiOjF9" target="_blank" rel="noopener noreferrer" title="Open Marketing & Social dashboard">
-            <img src="assets/CustomNew.png" alt="Customized & Tailored" />
-            <div class="overlay"><div class="overlay-text">Click to explore →</div></div>
-            <div class="caption">Customized &amp; Tailored</div>
-          </a>
+          <div class="card"><img src="assets/dash-sales.png" alt="Sales & Menu Performance"></div>
+          <div class="card"><img src="assets/dash-customers.png" alt="Customer Insights & Retention"></div>
+          <div class="card"><img src="assets/dash-events.png" alt="Event & Promotion Impact"></div>
+          <div class="card"><img src="assets/dash-inventory.png" alt="Inventory & Cost Control"></div>
+          <div class="card"><img src="assets/dash-marketing.png" alt="Marketing & Social"></div>
         </div>
       </div>
     </section>
 
-    <!-- PRICING -->
-    <section class="section">
-      <div class="container">
-        <div class="kicker">Pricing</div>
-        <h2>Start small, prove value, scale what works</h2>
-        <div class="grid grid-3">
-          <div class="card pricing-card">
-            <h3>Pilot</h3>
-            <div class="price">From $750 <small>one-time</small></div>
-            <ul>
-              <li>1 dashboard template tailored to you</li>
-              <li>Data hookup from Excel/CSV/Sheets</li>
-              <li>Walk-through & next-step plan</li>
-            </ul>
-          </div>
-          <div class="card pricing-card">
-            <h3>Essentials</h3>
-            <div class="price">$1,500–$3,000 <small>project</small></div>
-            <ul>
-              <li>2–3 dashboards + light automation</li>
-              <li>KPI alignment & brand-matched visuals</li>
-              <li>Email refresh or live share link</li>
-            </ul>
-          </div>
-          <div class="card pricing-card">
-            <h3>Ongoing</h3>
-            <div class="price">From $500 <small>/month</small></div>
-            <ul>
-              <li>Monthly updates & enhancements</li>
-              <li>New dashboards on request</li>
-              <li>Support & insights review</li>
-            </ul>
-          </div>
-        </div>
-        <p class="small" style="margin-top:8px;">Every engagement starts with a 30-min discovery to confirm scope and ROI.</p>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
     <section class="section">
       <div class="container">
         <div class="kicker">How it works</div>
-        <h2>A simple, no-surprises process</h2>
+        <h2>A simple, no‑surprises process</h2>
         <div class="grid grid-3">
-          <div class="card">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 4a2 2 0 0 1 2-2h2c.9 0 1.7.6 1.9 1.5l.7 3a2 2 0 0 1-.5 1.8l-1.2 1.2a16 16 0 0 0 6.8 6.8l1.2-1.2a2 2 0 0 1 1.8-.5l3 .7c.9.2 1.5 1 1.5 1.9v2a2 2 0 0 1-2 2h-1C9.7 22 2 14.3 2 5V4z"/></svg>
-            <strong>01 • Quick discovery</strong>
-            <p>30-minute call to confirm goals, data sources, and quick wins.</p>
-          </div>
-          <div class="card">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1Zm1 11.41 3.3 3.3a1 1 0 1 1-1.42 1.42l-3.59-3.6V6a1 1 0 0 1 2 0Z"/></svg>
-            <strong>02 • Prototype in 72h</strong>
-            <p>See a working draft using your exports (or my realistic sample data).</p>
-          </div>
-          <div class="card">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 1v4H7.8a6 6 0 0 0-6 6v1a1 1 0 1 0 2 0v-1a4 4 0 0 1 4-4H17v4l5-5ZM7 23v-4h9.2a6 6 0 0 0 6-6v-1a1 1 0 1 0-2 0v1a4 4 0 0 1-4 4H7v-4l-5 5Z"/></svg>
-            <strong>03 • Iterate &amp; automate</strong>
-            <p>Tighten visuals and set refresh (email or live dashboard).</p>
-          </div>
+          <div class="card"><strong>01 • Quick discovery</strong><p>15‑minute call to confirm goals, data sources, and quick wins.</p></div>
+          <div class="card"><strong>02 • Prototype in 72h</strong><p>See a working draft using your exports (or my realistic sample data).</p></div>
+          <div class="card"><strong>03 • Iterate & automate</strong><p>Tighten visuals + set refresh (email or live dashboard).</p></div>
         </div>
       </div>
     </section>
 
-    <!-- REVIEWS -->
-    <section class="section" id="reviews">
-      <div class="container">
-        <div class="kicker">Reviews</div>
-        <h2>What clients are saying</h2>
-        <p class="small" style="margin:6px 0 16px">
-          Recently worked with me?
-          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSed40WvQRM9WMWoXmnWzcujDJPBK803X1TKJ61IYLxqBhIy4g/viewform" target="_blank" rel="noopener" style="border:1px solid #e2e8f0;">
-            Leave a review
-          </a>
-        </p>
-        <div id="reviews-container" class="grid grid-2">
-          <div class="card review-card">
-            <div class="review-stars">★★★★★</div>
-            <p>“Ebo helped us turn confusing sales reports into simple dashboards we use daily. Quick turnaround and professional.”</p>
-            <p class="small">Jane Smith · Washington, DC</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
+    <section class="section">
       <div class="container">
         <div class="kicker">About</div>
-        <h2>Hi, I’m Ebosele Ayewoh — your fractional BI partner in the DMV</h2>
+        <h2>Hi, I’m Jon—your fractional BI partner in the DMV</h2>
         <div class="grid grid-2">
-          <div class="card about-bio">
-            <p>
-              I utilize my experience at top companies like Amazon, Pepsi, General Electric, John Hopkins and Pandora to help owners and managers trade spreadsheet chaos for simple, decision-ready dashboards.
-              My focus is speed, clarity, and measurable impact — not jargon. If you use Excel, Google Sheets,
-              QuickBooks, Toast, Square, Shopify, or CSVs, we can build dashboards that actually move the needle.
-            </p>
+          <div class="card">
+            <p>I help owners and managers trade spreadsheet chaos for simple, decision‑ready dashboards. I’m hands‑on, fast, and focused on business impact—not jargon. If you use Excel, Google Sheets, QuickBooks, Toast, Square, Shopify, or CSVs, we can make dashboards that actually move the needle.</p>
             <ul>
               <li>Power BI, Excel, SQL, Python</li>
               <li>Restaurant, retail, nonprofit, and event analytics</li>
-              <li>Pilot in 2 weeks, then iterate and automate</li>
+              <li>No long contracts—pilot in 2 weeks, keep what works</li>
             </ul>
           </div>
           <div class="card">
             <strong>What I deliver</strong>
             <ul>
               <li>Five customizable dashboard templates</li>
-              <li>Brand-matched visuals + your KPIs</li>
-              <li>I empower you to update dashboards with ease</li>
+              <li>Brand‑matched visuals + your KPIs</li>
+              <li>Automation so reports run themselves</li>
             </ul>
-
-            <div class="about-cta">
-              <a class="btn btn-primary"
-                 href="https://calendly.com/ebosele-ayewoh/30min"
-                 target="_blank" rel="noopener">Book a 30-min intro</a>
-              <a class="btn" href="#dashboards" style="border:1px solid #e2e8f0;">See sample dashboards</a>
-              <a class="btn" href="https://www.linkedin.com/in/ebosele-ayewoh-mba-a9320875/"
-                 target="_blank" rel="noopener" style="border:1px solid #e2e8f0;">LinkedIn</a>
-            </div>
+            <p class="small">🔗 <a href="https://www.linkedin.com/in/YOUR-LINKEDIN">Connect on LinkedIn</a></p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ Section -->
-<section id="faq" class="faq-section">
-  <div class="container">
-    <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-item">
-      <button class="faq-question">What kinds of dashboards do you build?</button>
-      <div class="faq-answer">
-        <p>I specialize in sales, marketing, and operations dashboards built in Power BI and Excel. I focus on clarity, action, and speed—without the need for heavy IT resources.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">Do I need to buy new software?</button>
-      <div class="faq-answer">
-        <p>No. Most of my work leverages tools you already use like Excel, Power BI, and Google Sheets. My goal is to minimize cost and maximize adoption.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">How quickly can you deliver results?</button>
-      <div class="faq-answer">
-        <p>Most projects take between 2–4 weeks depending on complexity. I also offer rapid-turnaround packages for quick wins and pilot dashboards.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">How does my raw data need to be organized?</button>
-      <div class="faq-answer">
-        <p>For the fastest turnaround, I recommend providing data in structured formats like Excel, Google Sheets, QuickBooks, Toast, Square, Shopify, or CSV files. These formats integrate smoothly into Power BI and Excel dashboards. Data from PDFs or Word documents is also possible, but may require additional cleanup, which can extend the timeline. If you’re unsure, I can guide you through preparing your data for the most efficient setup.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">Do you offer training manuals, videos, or sessions for my team?</button>
-      <div class="faq-answer">
-        <p>Yes. Every project includes a training package to ensure your team is confident using the dashboards. This typically includes live training sessions (recorded for later reference) tailored to your business workflows. My goal is to make sure you don’t just receive a dashboard — you know how to use it to drive results.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">If I start with one option, can I scale up later? What does that cost?</button>
-      <div class="faq-answer">
-        <p>Absolutely. I design dashboards with scalability in mind, so as your data needs grow, we can expand functionality without starting from scratch. The cost of scaling depends on the level of complexity — for example, adding new data sources, building advanced visualizations, or integrating predictive analytics. I’ll provide a clear upgrade path and pricing upfront so you can plan ahead.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">Are there limitations to the amount of data your dashboards can manage?</button>
-      <div class="faq-answer">
-        <p>Power BI and Excel are powerful tools capable of handling large datasets. However, performance depends on the scope of the project and the way the data is structured. For small to mid-sized businesses, my dashboards run seamlessly. If you anticipate enterprise-level datasets (millions of rows), I can implement strategies like data modeling, aggregation, and cloud integrations (Azure, AWS, etc.) to ensure speed and reliability.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">What if my data is messy and unorganized?</button>
-      <div class="faq-answer">
-        <p>That’s completely normal — most businesses start here. In fact, cleaning and structuring messy data is a core part of my process. I’ll work with whatever you have (Excel sheets, POS exports, CSV files, even receipts or notes). You don’t need to spend hours fixing data before we start — I’ll handle the heavy lifting so your dashboards are accurate, consistent, and decision-ready.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
+    <section class="section">
       <div class="container">
         <div class="kicker">Let’s talk</div>
-        <h2>Book a free 30-minute consult</h2>
+        <h2>Book a free 15‑minute consult</h2>
         <div class="grid grid-2">
           <div class="card">
-            <h3>Contact Me</h3>
-            <form id="contact-form">
+            <form name="contact" method="POST" data-netlify="true">
+              <input type="hidden" name="form-name" value="contact" />
               <div class="form-row">
                 <div>
                   <label>Your name</label>
-                  <input name="name" required />
+                  <input name="name" required>
                 </div>
                 <div>
                   <label>Email</label>
-                  <input name="email" type="email" required />
+                  <input name="email" type="email" required>
                 </div>
               </div>
               <div>
                 <label>Business (optional)</label>
-                <input name="business" />
+                <input name="business">
               </div>
               <div>
                 <label>What would you like to improve?</label>
@@ -383,550 +119,25 @@
               </div>
               <div class="submit">
                 <button class="btn btn-primary" type="submit">Send message</button>
-                <a class="btn" href="https://calendly.com/ebosele-ayewoh/30min" target="_blank" rel="noopener" style="border:1px solid #e2e8f0;">Book a 30-min intro</a>
+                <a class="btn" href="https://calendly.com/YOUR-CALENDLY/intro-call" target="_blank" style="border:1px solid #e2e8f0;">Book a 15‑min intro</a>
               </div>
             </form>
-
-            <!-- Inline Thank-You confirmation -->
-            <div id="thankyou" class="card thankyou" style="margin-top:12px;">
-              <h3>Thanks—your message is on the way ✅</h3>
-              <p>I’ll reply within 1 business day. You can also book time directly:</p>
-              <p><a class="btn btn-primary" href="https://calendly.com/ebosele-ayewoh/30min" target="_blank" rel="noopener">Book a 30-min intro</a></p>
-              <p class="small"><a href="#top">← Back to top</a></p>
-            </div>
           </div>
-
           <div class="card contact-card">
             <div><strong>Contact</strong></div>
-            <div>📧 <a href="mailto:EAAnalyticsConsulting@gmail.com">EAAnalyticsConsulting@gmail.com</a></div>
-            <div>📞 (216) 570-3324</div>
-            <div>🔗 <a href="https://www.linkedin.com/in/ebosele-ayewoh-mba-a9320875/">LinkedIn</a></div>
+            <div>📧 jon@jondoeinsights.com</div>
+            <div>📞 (XXX) XXX‑XXXX</div>
+            <div>🔗 <a href="https://www.linkedin.com/in/YOUR-LINKEDIN">LinkedIn</a></div>
             <div class="small">Response within 1 business day.</div>
           </div>
         </div>
       </div>
     </section>
-
-
-    <!-- SECURE UPLOAD -->
-<section id="upload" class="section">
-  <div class="container">
-    <div class="kicker">Secure Upload</div>
-
-    <!-- Animated lock icon -->
-    <div class="lock-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" role="img" focusable="false">
-        <path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v9a2 2 
-        0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1V7a5 
-        5 0 0 0-5-5Zm-3 8V7a3 3 0 0 1 6 0v3H9Z" />
-      </svg>
-    </div>
-
-    <h2>🔒 Secure Upload Portal</h2>
-    <p class="subtitle">
-      Share your business data safely — files are encrypted in transit and handled confidentially.
-    </p>
-
-    <div class="cta upload-cta">
-      <!-- PUBLIC (general) upload link — replace with your real file-request URL -->
-      <a class="btn btn-primary" href="https://www.dropbox.com/scl/fo/lrd4r0k6926ty0qdim1iz/AFkC_cL2Lk48NpX1qzYS6q4?rlkey=zlskp6rqlb73qpyjf32l6qhtg&st=ngyywbru&dl=0" target="_blank" rel="noopener">
-        🔒 Upload Your Files
-      </a>
-
-      <!-- PRIVATE (client-specific) link request -->
-      <a class="btn btn-outline"
-         href="mailto:EAAnalyticsConsulting@gmail.com?subject=Private%20Secure%20Upload%20Link%20Request&body=Hi%20Ebo%2C%0A%0APlease%20create%20a%20dedicated%20private%20upload%20link%20for%20our%20organization.%0A%0ACompany%20Name%3A%20%0APrimary%20Contact%3A%20%0APreferred%20Email%3A%20%0A%0AThanks!">
-        🛡️ Request your private link
-      </a>
-    </div>
-
-    <p class="small">
-      Use the public link for quick transfers. After onboarding, I provide a **dedicated private link** for your organization so uploads stay separated and traceable.
-    </p>
-
-    <!-- OPTIONAL: Collapsible details -->
-    <details class="upload-details">
-      <summary>How does the private link work?</summary>
-      <div>
-        <ul>
-          <li>We generate a **client-named** upload portal (e.g., <em>Acme_Corp_FileRequest</em>).</li>
-          <li>Only your team can upload; uploads are not visible to others.</li>
-          <li>We can add **password protection** or **expiration dates** on request.</li>
-        </ul>
-      </div>
-    </details>
-  </div>
-</section>
   </main>
 
   <footer>
-    <div class="container">© <span id="y"></span> EA Analytics Data &amp; Business Insights. All rights reserved.</div>
+    <div class="container">© <span id="y"></span> Jon Doe Insights. All rights reserved.</div>
   </footer>
-
-  <!-- Footer year + contact form handler -->
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    const form = document.getElementById('contact-form');
-    const ty = document.getElementById('thankyou');
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const data = new FormData(form);
-        const name = data.get('name') || '';
-        const email = data.get('email') || '';
-        const business = data.get('business') || '';
-        const message = data.get('message') || '';
-
-        const subject = encodeURIComponent('Inquiry from BI Consultant Site');
-        const body = encodeURIComponent(
-          `Name: ${name}\nEmail: ${email}\nBusiness: ${business}\n\nWhat to improve:\n${message}`
-        );
-
-        window.location.href = `mailto:EAAnalyticsConsulting@gmail.com?subject=${subject}&body=${body}`;
-        ty && ty.classList.add('show');
-        form.reset();
-      });
-    }
-  </script>
-
-<!-- ====== BI Explainer: richer visuals (no external libs) ====== -->
-<script>
-  const slides = [
-    /* Slide 1 */
-    {
-      key: "problem",
-      title: "Overwhelmed by spreadsheets?",
-      line: "Too many numbers. Not enough clarity.",
-      illus: `
-        <div class="sheet-stack">
-          <div class="sheet sheet-chaos-1">
-            <table>
-              <thead>
-                <tr><th>SKU</th><th>Item</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Note</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>1102</td><td>Pepperoni</td><td>1,240</td><td class="bad">-320</td><td>980</td><td><span class="flag bad">dup?</span></td></tr>
-                <tr><td>1103</td><td>Cheese</td><td>1,860</td><td>1,940</td><td class="warn">1,040</td><td><span class="flag warn">missing</span></td></tr>
-                <tr><td>1104</td><td>Veggie</td><td>640</td><td>720</td><td class="bad">-120</td><td>—</td></tr>
-                <tr><td>1110</td><td>Wings</td><td>1,010</td><td>830</td><td>1,060</td><td><span class="flag bad">conflict</span></td></tr>
-                <tr><td>1201</td><td>Soda</td><td>540</td><td class="bad">-60</td><td>610</td><td>—</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="sheet sheet-chaos-2" style="position:absolute; left:14px; right:14px; top:14px;">
-            <table>
-              <thead>
-                <tr><th>Date</th><th>Order #</th><th>Gross</th><th>Discount</th><th>Net</th><th>Source</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>3/01</td><td>#10231</td><td>1,420</td><td class="bad">-220</td><td>1,200</td><td>Online</td></tr>
-                <tr><td>3/02</td><td>#10244</td><td>1,180</td><td>-80</td><td class="good">1,100</td><td>POS</td></tr>
-                <tr><td>3/03</td><td>#10263</td><td>960</td><td>-40</td><td>920</td><td>POS</td></tr>
-                <tr><td>3/04</td><td>#10270</td><td>1,340</td><td class="warn">-300</td><td>1,040</td><td>Delivery</td></tr>
-                <tr><td>3/05</td><td>#10285</td><td>1,520</td><td>-120</td><td class="good">1,400</td><td>Online</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      `
-    },
-
-    /* Slide 2 — (darker text) */
-    {
-      key: "guide",
-      title: "That’s where I come in.",
-      line: "As your BI consultant, I turn raw data into insights you can actually use.",
-      illus: `
-        <div class="consultant">
-          <svg viewBox="0 0 160 120" width="160" height="120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#10b981"/>
-                <stop offset="100%" stop-color="#059669"/>
-              </linearGradient>
-            </defs>
-            <!-- aura -->
-            <circle cx="80" cy="60" r="58" fill="url(#grad)" opacity=".18"/>
-            <!-- head -->
-            <circle cx="80" cy="38" r="16" fill="#e5e7eb"/>
-            <!-- torso / tie -->
-            <path d="M52 80c8-10 20-16 28-16s20 6 28 16v18H52V80z" fill="#0ea5e9"/>
-            <path d="M80 54l6 8-6 8-6-8 6-8z" fill="#f59e0b"/>
-            <!-- laptop -->
-            <rect x="46" y="92" width="68" height="12" rx="4" fill="#0b1220" stroke="#94a3b8" stroke-opacity=".3"/>
-            <rect x="50" y="94" width="60" height="3" rx="2" fill="#7dd3fc"/>
-          </svg>
-          <div>BI Consultant</div>
-          <div class="bi-pills">
-            <span class="bi-pill">Power BI</span>
-            <span class="bi-pill">Excel</span>
-            <span class="bi-pill">Google Sheets</span>
-          </div>
-        </div>
-      `
-    },
-
-    /* Slide 3 — “clear data” */
-    {
-      key: "transform",
-      title: "Your data, finally clear.",
-      line: "Watch messy tables transform into clean dashboards with KPIs, trends, and filters.",
-      illus: `
-        <div class="sheet">
-          <table>
-            <thead>
-              <tr><th>Item</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Δ MoM</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Pepperoni</td><td>1,240</td><td>1,560</td><td class="good">1,980</td><td><span class="flag good">+27%</span></td></tr>
-              <tr><td>Cheese</td><td>1,860</td><td>1,940</td><td>2,010</td><td><span class="flag good">+4%</span></td></tr>
-              <tr><td>Veggie</td><td>640</td><td>720</td><td>760</td><td><span class="flag good">+6%</span></td></tr>
-              <tr><td>Wings</td><td>1,010</td><td>1,060</td><td>1,120</td><td><span class="flag good">+6%</span></td></tr>
-            </tbody>
-          </table>
-
-          <div class="mini-bars">
-            ${[32,56,44,74,50,84,62].map(h => `<div class="bar" style="height:${h}px"></div>`).join('')}
-          </div>
-        </div>
-      `
-    },
-
-    /* Slide 4 — “confidence” */
-    {
-      key: "confidence",
-      title: "Decisions made with confidence.",
-      line: "Know what’s working and what’s not — because the numbers are finally clear.",
-      illus: `
-        <div class="sheet">
-          <div class="kpis">
-            <div class="kpi-tile"><div class="k-label">Sales</div><div class="k-val">↑ 22%</div></div>
-            <div class="kpi-tile"><div class="k-label">New Customers</div><div class="k-val">+35</div></div>
-            <div class="kpi-tile"><div class="k-label">Repeat Rate</div><div class="k-val">41%</div></div>
-          </div>
-
-          <svg class="sparkline" viewBox="0 0 200 60" preserveAspectRatio="none">
-            <polyline fill="none" stroke="#10b981" stroke-width="3"
-              points="0,45 20,42 40,38 60,32 80,28 100,25 120,22 140,26 160,20 180,18 200,15"/>
-          </svg>
-
-          <table>
-            <thead>
-              <tr><th>Customer</th><th>Orders</th><th>Avg Spend</th><th>Status</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>J. Rivera</td><td>6</td><td>$28.40</td><td><span class="flag good">Loyal</span></td></tr>
-              <tr><td>M. Patel</td><td>3</td><td>$22.10</td><td><span class="flag warn">At Risk</span></td></tr>
-              <tr><td>T. Nguyen</td><td>4</td><td>$31.70</td><td><span class="flag good">Growing</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      `
-    },
-
-    /* Slide 5 — (darker text) final hook */
-{
-  key: "hook",
-  title: "Your business already has the answers — I help you see them clearly.",
-  line: "One source of truth. Interactive dashboards. Faster decisions.",
-  illus: `
-    <div style="text-align:center; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:20px;">
-      <svg viewBox="0 0 220 90" width="220" height="90" aria-hidden="true">
-        <path d="M10 60 C 40 20, 80 20, 110 60 S 180 100, 210 60" 
-              fill="none" stroke="#10b981" stroke-width="5" />
-        <circle cx="210" cy="60" r="7" fill="#10b981"/>
-      </svg>
-
-      <!-- pill row styled like Slide 2's Power BI/Excel/Sheets -->
-      <div class="bi-pills" style="margin-top:12px;">
-        <span class="bi-pill">Clarity → Action</span>
-      </div>
-    </div>
-  `
-}
-
-
-
-
-  ];
-
-  let idx = 0, playing = false, timer, showCC = false, narrating = false;
-  const root = document.getElementById("explainer-root");
-  const btnCC = document.getElementById("btn-cc");
-  const btnNarrate = document.getElementById("btn-narrate");
-  const btnReplay = document.getElementById("btn-replay");
-
-  function renderSlide(i) {
-    root.innerHTML = "";
-    const wrap = document.createElement("div");
-    // add slide index class for targeted CSS (.s2, .s5)
-    wrap.className = `explainer-slide active s${i+1}`;
-    wrap.innerHTML = `
-      <div class="explainer-flex">
-        <div class="explainer-copy">
-          <h3>${slides[i].title}</h3>
-          ${slides[i].line ? `<p>${slides[i].line}</p>` : ``}
-        </div>
-        <div class="explainer-illus">${slides[i].illus}</div>
-      </div>
-      ${showCC && slides[i].line
-        ? `<div class="explainer-caption">
-            <div class="bi-cap-title">${slides[i].title}</div>
-            <div class="bi-cap-line">${slides[i].line}</div>
-           </div>`
-        : ""}`;
-    root.appendChild(wrap);
-  }
-
-  function play() {
-    playing = true;
-    idx = 0;
-    renderSlide(idx);
-    clearInterval(timer);
-    timer = setInterval(() => {
-      idx++;
-      if (idx < slides.length) {
-        renderSlide(idx);
-      } else {
-        clearInterval(timer);
-        playing = false;
-      }
-    }, 3400);
-  }
-
-  btnReplay.addEventListener("click", play);
-  btnCC.addEventListener("click", ()=>{ showCC=!showCC; renderSlide(idx); });
-  btnNarrate.addEventListener("click", ()=>{
-    narrating = !narrating;
-    if (narrating && "speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-      (async ()=>{
-        const speak = (text, delay=0)=> new Promise(res=>{
-          const u = new SpeechSynthesisUtterance(text); u.rate=1.05; u.onend=res;
-          setTimeout(()=>window.speechSynthesis.speak(u), delay);
-        });
-        for (let s of slides) {
-          const text = [s.title, s.line].filter(Boolean).join(". ");
-          if (text) await speak(text, 80);
-        }
-        narrating=false;
-      })();
-    } else {
-      window.speechSynthesis.cancel();
-    }
-  });
-
-  // autoplay once on load
-  play();
-</script>
-
-<script>
-  document.querySelectorAll(".faq-question").forEach((button) => {
-    button.addEventListener("click", () => {
-      const faqItem = button.parentElement;
-      faqItem.classList.toggle("active");
-    });
-  });
-</script>
-
-
-<script>
-/* ===== Reviews loader (Google Forms Sheet) with approvals + CSV fallback ===== */
-
-(async function loadReviews() {
-  // --- CONFIG ---
-  const SHEET_ID  = "1gZUWWyL7LkZgvzmHUi706LQYSRzlPJa-EC5KXBQuO7k";
-  const SHEET_TAB = "Form_Responses";       // exact tab name (case-sensitive)
-  let   SHEET_GID = "563884249";            // known gid for CSV fallback (string/number OK)
-  // --------------
-
-  const container = document.getElementById("reviews-container");
-  if (!container) return;
-
-  const log  = (...a) => console.log("[Reviews]", ...a);
-  const warn = (...a) => console.warn("[Reviews]", ...a);
-  const errorUI = (msg) => {
-    container.insertAdjacentHTML(
-      "beforeend",
-      `<div class="card review-card">
-        <p class="small">Couldn’t load live reviews right now.</p>
-        <p class="small">${msg}</p>
-        <p class="small">You can still <a href="https://docs.google.com/forms/d/e/1FAIpQLSed40WvQRM9WMWoXmnWzcujDJPBK803X1TKJ61IYLxqBhIy4g/viewform" target="_blank" rel="noopener">leave a review here</a>.</p>
-      </div>`
-    );
-  };
-
-  const toStars = (val) => {
-    const n = Math.max(0, Math.min(5, Number(val) || 0));
-    return "★★★★★".slice(0, n) + "☆☆☆☆☆".slice(0, 5 - n);
-  };
-      // Formats many date shapes to MM/DD/YYYY
-    const fmtDate = (v) => {
-      if (v == null || v === "") return "";
-
-      // 1) Handle GViz-style strings: Date(YYYY,MM,DD)
-      if (typeof v === "string") {
-        const m = v.match(/Date\((\d+),\s*(\d+),\s*(\d+)\)/);
-        if (m) {
-          const y  = +m[1];
-          const mo = +m[2]; // zero-based month from GViz
-          const d  = +m[3];
-          return new Date(y, mo, d).toLocaleDateString("en-US");
-        }
-      }
-
-      // 2) Handle Google Sheets serial numbers (days since 1899-12-30)
-      if (typeof v === "number") {
-        if (v > 25569 && v < 600000) {
-          const ms = Math.round((v - 25569) * 86400 * 1000);
-          return new Date(ms).toLocaleDateString("en-US");
-        }
-      }
-
-      // 3) Fallback: try to parse anything else (ISO, etc.)
-      const d = new Date(v);
-      return isNaN(d.getTime()) ? String(v) : d.toLocaleDateString("en-US");
-  };
-
-  const renderCards = (rows, colIdx) => {
-    container.innerHTML = "";
-    if (!rows.length) {
-      container.innerHTML = `
-        <div class="card review-card">
-          <p class="small">No approved reviews yet — be the first to
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSed40WvQRM9WMWoXmnWzcujDJPBK803X1TKJ61IYLxqBhIy4g/viewform" target="_blank" rel="noopener">leave a review</a>.</p>
-        </div>`;
-      return;
-    }
-    rows.slice().reverse().forEach(r => {
-      const ts   = colIdx.timestamp >= 0 ? r[colIdx.timestamp] : "";
-      const name = colIdx.name      >= 0 ? r[colIdx.name]      : "";
-      const comp = colIdx.company   >= 0 ? r[colIdx.company]   : "";
-      const city = colIdx.city      >= 0 ? (r[colIdx.city] || "") : "";
-      const rate = colIdx.rating    >= 0 ? r[colIdx.rating]    : "";
-      const text = colIdx.review    >= 0 ? r[colIdx.review]    : "";
-      if (!text && !name) return;
-
-      const who = [name, comp || city].filter(Boolean).join(" · ");
-      const card = document.createElement("div");
-      card.className = "card review-card";
-      card.innerHTML = `
-        <div class="review-stars">${toStars(rate)}</div>
-        ${text ? `<p>“${String(text).replace(/"/g, "&quot;")}”</p>` : ``}
-        <p class="small">${who ? who : ""} ${ts ? " · " + fmtDate(ts) : ""}</p>
-      `;
-      container.appendChild(card);
-    });
-  };
-
-  // Helper: truthy checker for Approved column
-  const isApproved = (v) => {
-    if (typeof v === "boolean") return v;
-    if (v == null) return false;
-    const t = String(v).trim().toLowerCase();
-    return ["yes","y","true","approved","1"].includes(t);
-  };
-
-  // --------- Try GViz JSON first ---------
-  const gvizUrl = `https://docs.google.com/spreadsheets/d/${encodeURIComponent(SHEET_ID)}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_TAB)}`;
-
-  async function tryGViz() {
-    log("Trying GViz JSON:", gvizUrl);
-    const res = await fetch(gvizUrl, { cache: "no-store" });
-    const txt = await res.text();
-
-    const jsonStart = txt.indexOf("{");
-    const jsonEnd   = txt.lastIndexOf("}");
-    if (jsonStart === -1 || jsonEnd === -1) {
-      throw new Error("GViz did not return JSON (private sheet or wrong tab name)");
-    }
-    const data = JSON.parse(txt.slice(jsonStart, jsonEnd + 1));
-    if (!data.table) throw new Error("GViz payload missing 'table'");
-
-    const cols = data.table.cols || [];
-    const rowsRaw = (data.table.rows || []).map(r => (r.c || []).map(c => (c ? c.v : "")));
-
-    const findCol = (regex) => cols.findIndex(c => regex.test(String(c.label || "").trim()));
-    const colIdx = {
-      timestamp: findCol(/timestamp|date/i),
-      name:      findCol(/name/i),
-      company:   findCol(/company|business|org|location/i),
-      city:      findCol(/city|town|state|location/i),
-      rating:    findCol(/rating|stars?/i),
-      review:    findCol(/review|testimonial|feedback|comments?/i),
-      approved:  findCol(/approved/i),
-    };
-    log("GViz col indexes:", colIdx);
-
-    if (colIdx.approved === -1) {
-      errorUI('Missing an **Approved** column. Add a column named "Approved" and set it to **Yes** for reviews you want to show.');
-      return true;
-    }
-
-    const rows = rowsRaw.filter(r => isApproved(r[colIdx.approved]));
-    renderCards(rows, colIdx);
-    return true;
-  }
-
-  // --------- If GViz fails, try CSV export (needs gid) ---------
-  async function findGid() {
-    if (SHEET_GID != null) return String(SHEET_GID);
-    throw new Error("CSV fallback requires the tab gid. Open your responses tab and copy the number after #gid= in the URL, then set SHEET_GID in the config.");
-  }
-
-  async function tryCSV() {
-    const gid = await findGid(); // throws if not set
-    const csvUrl = `https://docs.google.com/spreadsheets/d/${encodeURIComponent(SHEET_ID)}/export?format=csv&gid=${encodeURIComponent(gid)}`;
-    log("Trying CSV export:", csvUrl);
-    const res = await fetch(csvUrl, { cache: "no-store" });
-    if (!res.ok) throw new Error("CSV export failed (check share settings and gid)");
-    const csv = await res.text();
-
-    const lines  = csv.split(/\r?\n/).filter(Boolean);
-    const header = lines[0].split(",").map(h => h.trim());
-    const rowsRaw = lines.slice(1).map(line => line.split(",")); // naive split (OK if no embedded commas)
-
-    const idxOf = (regex) => header.findIndex(h => regex.test(h));
-    const colIdx = {
-      timestamp: idxOf(/timestamp|date/i),
-      name:      idxOf(/name/i),
-      company:   idxOf(/company|business|org|location/i),
-      city:      idxOf(/city|town|state|location/i),
-      rating:    idxOf(/rating|stars?/i),
-      review:    idxOf(/review|testimonial|feedback|comments?/i),
-      approved:  idxOf(/approved/i),
-    };
-    log("CSV col indexes:", colIdx);
-
-    if (colIdx.approved === -1) {
-      errorUI('Missing an **Approved** column. Add a column named "Approved" and set it to **Yes** for reviews you want to show.');
-      return true;
-    }
-
-    const rows = rowsRaw.filter(r => isApproved(r[colIdx.approved]));
-    renderCards(rows, colIdx);
-    return true;
-  }
-
-  // --------- Run (GViz first, then CSV fallback) ---------
-  try {
-    await tryGViz();
-  } catch (e1) {
-    warn("GViz failed:", e1.message);
-    try {
-      await tryCSV();
-    } catch (e2) {
-      warn("CSV fallback failed:", e2.message);
-      errorUI("Tip: Share the sheet as **Anyone with the link: Viewer**, confirm the tab name, and add an **Approved** column with **Yes** for reviews to show.");
-    }
-  }
-})();
-</script>
-
-
-
-
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
